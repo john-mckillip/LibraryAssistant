@@ -24,7 +24,7 @@ namespace LibraryModels
             lastName = lName;
             phoneNumber = pNum;
             emailAddres = eAddy;
-            hasFines = false;
+            hasFines = false; // New customer can't have fines
         }
     }
 }
