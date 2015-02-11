@@ -69,6 +69,7 @@
             this.booksButton.TabIndex = 2;
             this.booksButton.Text = "BOOKS";
             this.booksButton.UseVisualStyleBackColor = false;
+            this.booksButton.Click += new System.EventHandler(this.booksButton_Click);
             // 
             // customersButton
             // 
@@ -83,6 +84,7 @@
             this.customersButton.TabIndex = 3;
             this.customersButton.Text = "CUSTOMERS";
             this.customersButton.UseVisualStyleBackColor = false;
+            this.customersButton.Click += new System.EventHandler(this.customersButton_Click);
             // 
             // Main
             // 

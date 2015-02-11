@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // BooksView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "BooksView";
+            this.ClientSize = new System.Drawing.Size(1543, 639);
+            this.Name = "BooksView";
+            this.Text = "Books";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

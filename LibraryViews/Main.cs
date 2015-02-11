@@ -16,5 +16,19 @@ namespace LibraryViews
         {
             InitializeComponent();
         }
+
+        private void booksButton_Click(object sender, EventArgs e)
+        {
+            BooksView books = new BooksView();
+            Main.ActiveForm.Hide();
+            books.Show();
+        }
+
+        private void customersButton_Click(object sender, EventArgs e)
+        {
+            CustomersView customers = new CustomersView();
+            Main.ActiveForm.Hide();
+            customers.Show();
+        }
     }
 }
