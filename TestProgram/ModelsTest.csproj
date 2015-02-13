@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{017E91B5-FF05-4D24-807D-8AF4E6B30B67}</ProjectGuid>
+    <ProjectGuid>{20752AFE-1EF2-4E92-9198-CD9AA2480650}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestModels</RootNamespace>
-    <AssemblyName>TestModels</AssemblyName>
+    <RootNamespace>TestProgram</RootNamespace>
+    <AssemblyName>TestProgram</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryModels\LibraryModels.csproj">
+      <Project>{9b6a9347-615d-400f-b544-97c22111b8fd}</Project>
+      <Name>LibraryModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

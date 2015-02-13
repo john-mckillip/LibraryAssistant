@@ -8,7 +8,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LibraryModels
 {
-    class CustomerObjectToSerialize : ISerializable
+    [Serializable()]
+    public class CustomerObjectToSerialize : ISerializable
     {
         private List<Customer> customers;
 

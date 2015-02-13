@@ -21,6 +21,7 @@ namespace LibraryModels
         // Constructor
         public Customer(string fName, string lName, string pNum, string eAddy)
         {
+            this.accountNumber = 1;
             this.firstName = fName;
             this.lastName = lName;
             this.phoneNumber = pNum;
