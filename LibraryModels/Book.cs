@@ -32,11 +32,17 @@ namespace LibraryModels
             // ToDo: Build a way to create/store master id so it is
             // always unique
         }
+        // ToDo: Add a ToString() method
 
         // Deserialization method
         public Book(SerializationInfo info, StreamingContext ctxt)
         {
-
+            this.id = (int)info.GetValue("BookId", typeof(int));
+            this.title = (string)info.GetValue("BookTitle", typeof(string));
+            this.author = (string)info.GetValue("BookAuthor", typeof(string));
+            this.publisher = (string)info.GetValue("BookPublisher", typeof(string));
+            this.isbnNum = (string)info.GetValue("ISBNNumber", typeof(string));
+            this.isCheckedOut = (bool)info.GetValue("Checked", typeof(bool));
         }
 
         // Serialization method http://tech.pro/tutorial/618/csharp-tutorial-serialize-objects-to-a-file
@@ -48,7 +54,6 @@ namespace LibraryModels
             info.AddValue("BookPublisher", this.publisher);
             info.AddValue("ISBNNumber", this.isbnNum);
             info.AddValue("CheckedOut", this.isCheckedOut);
-
         }
     }
 }
