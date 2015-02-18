@@ -27,7 +27,6 @@ namespace LibraryModels
             int aNum = Convert.ToInt32(line) + 1;
             System.IO.File.WriteAllText("account-num.txt", aNum.ToString());
             return aNum;
-            //TextWriter tw = new StreamWriter("account-num.txt");
         }
         
         // Constructor
@@ -40,9 +39,6 @@ namespace LibraryModels
             this.emailAddress = eAddy;
             this.hasFines = false; // New customer can't have fines
             this.fines = 0.00m; // So the total when created is 0
-
-            // ToDo: Build a way to create/store master account # 
-            // so it is always unique
         }
 
         // Add a fine to a customer object

@@ -20,19 +20,31 @@ namespace LibraryModels
         private string isbnNum { get; set; }
         private bool isCheckedOut { get; set; }
 
+        private int GetId()
+        {
+            StreamReader sr = new StreamReader("book-id.txt");
+            string line = sr.ReadLine();
+            sr.Close();
+            int iNum = Convert.ToInt32(line) + 1;
+            System.IO.File.WriteAllText("book-id.txt", iNum.ToString());
+            return iNum;
+        }
+
         // Contstructor
         public Book(string t, string a, string p, string iNum)
         {
+            this.id = GetId();
             this.title = t;
             this.author = a;
             this.publisher = p;
             this.isbnNum = iNum;
             this.isCheckedOut = false;
-
-            // ToDo: Build a way to create/store master id so it is
-            // always unique
         }
-        // ToDo: Add a ToString() method
+
+        public override string ToString()
+        {
+            return String.Format("Id: {0}, Title:{1}, Author:{2}, Publisher:{3}, ISBN:{4}, Checked Out:{3}", id, title, author, publisher, isbnNum, isCheckedOut);
+        }
 
         // Deserialization method
         public Book(SerializationInfo info, StreamingContext ctxt)
