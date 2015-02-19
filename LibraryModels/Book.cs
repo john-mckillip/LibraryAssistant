@@ -54,7 +54,7 @@ namespace LibraryModels
             this.author = (string)info.GetValue("BookAuthor", typeof(string));
             this.publisher = (string)info.GetValue("BookPublisher", typeof(string));
             this.isbnNum = (string)info.GetValue("ISBNNumber", typeof(string));
-            this.isCheckedOut = (bool)info.GetValue("Checked", typeof(bool));
+            this.isCheckedOut = (bool)info.GetValue("CheckedOut", typeof(bool));
         }
 
         // Serialization method http://tech.pro/tutorial/618/csharp-tutorial-serialize-objects-to-a-file

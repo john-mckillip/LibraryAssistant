@@ -37,6 +37,7 @@
             this.publisherLabel = new System.Windows.Forms.Label();
             this.isbnLabel = new System.Windows.Forms.Label();
             this.addBookButton = new System.Windows.Forms.Button();
+            this.successLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleTextBox
@@ -121,17 +122,27 @@
             this.addBookButton.ForeColor = System.Drawing.Color.White;
             this.addBookButton.Location = new System.Drawing.Point(65, 458);
             this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(116, 33);
+            this.addBookButton.Size = new System.Drawing.Size(117, 39);
             this.addBookButton.TabIndex = 8;
-            this.addBookButton.Text = "ADD BOOK";
+            this.addBookButton.Text = "ADD";
             this.addBookButton.UseVisualStyleBackColor = false;
             this.addBookButton.Click += new System.EventHandler(this.addBookButton_Click);
+            // 
+            // successLabel
+            // 
+            this.successLabel.AutoSize = true;
+            this.successLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.successLabel.Location = new System.Drawing.Point(61, 45);
+            this.successLabel.Name = "successLabel";
+            this.successLabel.Size = new System.Drawing.Size(0, 21);
+            this.successLabel.TabIndex = 9;
             // 
             // AddBookView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 584);
+            this.ClientSize = new System.Drawing.Size(562, 584);
+            this.Controls.Add(this.successLabel);
             this.Controls.Add(this.addBookButton);
             this.Controls.Add(this.isbnLabel);
             this.Controls.Add(this.publisherLabel);
@@ -159,5 +170,6 @@
         private System.Windows.Forms.Label publisherLabel;
         private System.Windows.Forms.Label isbnLabel;
         private System.Windows.Forms.Button addBookButton;
+        private System.Windows.Forms.Label successLabel;
     }
 }

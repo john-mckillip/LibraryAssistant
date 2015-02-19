@@ -9,7 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LibraryModels
 {
-    class BookSerializer
+    public class BookSerializer
     {
         public BookSerializer()
         {
