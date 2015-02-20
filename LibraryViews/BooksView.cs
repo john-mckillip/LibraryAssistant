@@ -24,7 +24,7 @@ namespace LibraryViews
 
             //Add column header
             booksListView.Columns.Add("Id", 50);
-            booksListView.Columns.Add("Title", 150);
+            booksListView.Columns.Add("Title", 200);
             booksListView.Columns.Add("Author", 150);
             booksListView.Columns.Add("Checked Out", 120);
 

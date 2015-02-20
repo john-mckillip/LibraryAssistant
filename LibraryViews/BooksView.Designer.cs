@@ -32,12 +32,15 @@
             this.booksListView = new System.Windows.Forms.ListView();
             this.exitButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.checkoutButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addBookButton
             // 
             this.addBookButton.BackColor = System.Drawing.Color.Black;
             this.addBookButton.FlatAppearance.BorderSize = 0;
+            this.addBookButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.addBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBookButton.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBookButton.ForeColor = System.Drawing.Color.White;
@@ -91,11 +94,43 @@
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // checkoutButton
+            // 
+            this.checkoutButton.BackColor = System.Drawing.Color.Black;
+            this.checkoutButton.FlatAppearance.BorderSize = 0;
+            this.checkoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkoutButton.Font = new System.Drawing.Font("Roboto", 12F);
+            this.checkoutButton.ForeColor = System.Drawing.Color.White;
+            this.checkoutButton.Location = new System.Drawing.Point(25, 581);
+            this.checkoutButton.Name = "checkoutButton";
+            this.checkoutButton.Size = new System.Drawing.Size(500, 46);
+            this.checkoutButton.TabIndex = 5;
+            this.checkoutButton.Text = "CHECKOUT BOOK";
+            this.checkoutButton.UseVisualStyleBackColor = false;
+            // 
+            // editButton
+            // 
+            this.editButton.BackColor = System.Drawing.Color.Black;
+            this.editButton.FlatAppearance.BorderSize = 0;
+            this.editButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editButton.ForeColor = System.Drawing.Color.White;
+            this.editButton.Location = new System.Drawing.Point(25, 521);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(500, 46);
+            this.editButton.TabIndex = 6;
+            this.editButton.Text = "EDIT BOOK";
+            this.editButton.UseVisualStyleBackColor = false;
+            // 
             // BooksView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 639);
+            this.ClientSize = new System.Drawing.Size(552, 639);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.checkoutButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.booksListView);
@@ -112,5 +147,7 @@
         private System.Windows.Forms.ListView booksListView;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button checkoutButton;
+        private System.Windows.Forms.Button editButton;
     }
 }

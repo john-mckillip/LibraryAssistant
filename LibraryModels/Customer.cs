@@ -19,7 +19,7 @@ namespace LibraryModels
         private bool hasFines { get; set; }
         private decimal fines { get; set; }
 
-        private int GetAccountNumber()
+        private int CreateAccountNumber()
         {
             StreamReader sr = new StreamReader("account-num.txt");
             string line = sr.ReadLine();
@@ -32,13 +32,68 @@ namespace LibraryModels
         // Constructor
         public Customer(string fName, string lName, string pNum, string eAddy)
         {
-            this.accountNumber = GetAccountNumber();
+            this.accountNumber = CreateAccountNumber();
             this.firstName = fName;
             this.lastName = lName;
             this.phoneNumber = pNum;
             this.emailAddress = eAddy;
             this.hasFines = false; // New customer can't have fines
             this.fines = 0.00m; // So the total when created is 0
+        }
+
+        public int GetAccountNumber()
+        {
+            return accountNumber;
+        }
+
+        public string GetFirstName()
+        {
+            return firstName;
+        }
+
+        public void SetFirstName(string fName)
+        {
+            this.firstName = fName;
+        }
+
+        public string GetLastName()
+        {
+            return lastName;
+        }
+
+        public void SetLastName(string lName)
+        {
+            this.lastName = lName;
+        }
+
+        public string GetName()
+        {
+            return firstName + " " + lastName;
+        }
+
+        public string GetPhoneNumber()
+        {
+            return phoneNumber;
+        }
+
+        public void SetPhoneNumber(string pNumber)
+        {
+            this.phoneNumber = pNumber;
+        }
+
+        public string GetEmailAddress()
+        {
+            return emailAddress;
+        }
+
+        public void SetEmailAddress(string eAddy)
+        {
+            this.emailAddress = eAddy;
+        }
+
+        public decimal GetFine()
+        {
+            return fines;
         }
 
         // Add a fine to a customer object

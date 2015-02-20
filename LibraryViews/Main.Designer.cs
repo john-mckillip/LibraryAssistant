@@ -50,7 +50,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::LibraryViews.Properties.Resources.customers_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(356, 116);
+            this.pictureBox2.Location = new System.Drawing.Point(270, 116);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 117);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -79,7 +79,7 @@
             this.customersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customersButton.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customersButton.ForeColor = System.Drawing.Color.White;
-            this.customersButton.Location = new System.Drawing.Point(372, 253);
+            this.customersButton.Location = new System.Drawing.Point(286, 253);
             this.customersButton.Name = "customersButton";
             this.customersButton.Size = new System.Drawing.Size(117, 39);
             this.customersButton.TabIndex = 3;
@@ -94,7 +94,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(401, 21);
+            this.exitButton.Location = new System.Drawing.Point(315, 21);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(105, 40);
             this.exitButton.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 376);
+            this.ClientSize = new System.Drawing.Size(449, 376);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.customersButton);
             this.Controls.Add(this.booksButton);
