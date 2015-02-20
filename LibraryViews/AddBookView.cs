@@ -64,7 +64,7 @@ namespace LibraryViews
             // Let the user know if the book was added successfully or not.
             if (success)
             {
-                successLabel.Text = successString;
+                MessageBox.Show(successString);
                 titleTextBox.Text = "";
                 authorTextBox.Text = "";
                 publisherTextBox.Text = "";
@@ -72,8 +72,20 @@ namespace LibraryViews
             }
             else
             {
-                successLabel.Text = noSuccessString;
+                MessageBox.Show(noSuccessString);
             }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            BooksView books = new BooksView();
+            AddBookView.ActiveForm.Close();
+            books.Show();
         }
     }
 }

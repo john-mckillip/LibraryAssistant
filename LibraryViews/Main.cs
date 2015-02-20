@@ -30,5 +30,10 @@ namespace LibraryViews
             Main.ActiveForm.Hide();
             customers.Show();
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

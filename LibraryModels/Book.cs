@@ -20,7 +20,7 @@ namespace LibraryModels
         private string isbnNum { get; set; }
         private bool isCheckedOut { get; set; }
 
-        private int GetId()
+        private int AssignId()
         {
             StreamReader sr = new StreamReader("book-id.txt");
             string line = sr.ReadLine();
@@ -33,12 +33,47 @@ namespace LibraryModels
         // Contstructor
         public Book(string t, string a, string p, string iNum)
         {
-            this.id = GetId();
+            this.id = AssignId();
             this.title = t;
             this.author = a;
             this.publisher = p;
             this.isbnNum = iNum;
             this.isCheckedOut = false;
+        }
+
+        public int GetId()
+        {
+            return this.id;
+        }
+
+        public void SetId(int i)
+        {
+            this.id = i;
+        }
+
+        public string GetTitle()
+        {
+            return this.title;
+        }
+
+        public void SetTitle(string t)
+        {
+            this.title = t;
+        }
+
+        public string GetAuthor()
+        {
+            return this.author;
+        }
+
+        public void SetAuthor(string a)
+        {
+            this.author = a;
+        }
+
+        public bool IsCheckedOut()
+        {
+            return this.isCheckedOut;
         }
 
         public override string ToString()

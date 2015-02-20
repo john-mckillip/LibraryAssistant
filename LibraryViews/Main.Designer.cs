@@ -32,6 +32,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.booksButton = new System.Windows.Forms.Button();
             this.customersButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -39,7 +40,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LibraryViews.Properties.Resources.book_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(466, 310);
+            this.pictureBox1.Location = new System.Drawing.Point(34, 108);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -49,7 +50,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::LibraryViews.Properties.Resources.customers_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(788, 318);
+            this.pictureBox2.Location = new System.Drawing.Point(356, 116);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 117);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -63,7 +64,7 @@
             this.booksButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.booksButton.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.booksButton.ForeColor = System.Drawing.Color.White;
-            this.booksButton.Location = new System.Drawing.Point(480, 455);
+            this.booksButton.Location = new System.Drawing.Point(48, 253);
             this.booksButton.Name = "booksButton";
             this.booksButton.Size = new System.Drawing.Size(117, 39);
             this.booksButton.TabIndex = 2;
@@ -78,7 +79,7 @@
             this.customersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customersButton.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customersButton.ForeColor = System.Drawing.Color.White;
-            this.customersButton.Location = new System.Drawing.Point(804, 455);
+            this.customersButton.Location = new System.Drawing.Point(372, 253);
             this.customersButton.Name = "customersButton";
             this.customersButton.Size = new System.Drawing.Size(117, 39);
             this.customersButton.TabIndex = 3;
@@ -86,11 +87,27 @@
             this.customersButton.UseVisualStyleBackColor = false;
             this.customersButton.Click += new System.EventHandler(this.customersButton_Click);
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
+            this.exitButton.ForeColor = System.Drawing.Color.White;
+            this.exitButton.Location = new System.Drawing.Point(401, 21);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(105, 40);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "EXIT";
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1541, 644);
+            this.ClientSize = new System.Drawing.Size(536, 376);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.customersButton);
             this.Controls.Add(this.booksButton);
             this.Controls.Add(this.pictureBox2);
@@ -110,6 +127,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button booksButton;
         private System.Windows.Forms.Button customersButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 

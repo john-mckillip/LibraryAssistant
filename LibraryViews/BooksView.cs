@@ -1,8 +1,10 @@
-﻿using System;
+﻿using LibraryModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,27 +23,44 @@ namespace LibraryViews
             booksListView.FullRowSelect = true;
 
             //Add column header
-            booksListView.Columns.Add("ProductName", 100);
-            booksListView.Columns.Add("Price", 70);
-            booksListView.Columns.Add("Quantity", 70);
+            booksListView.Columns.Add("Id", 50);
+            booksListView.Columns.Add("Title", 150);
+            booksListView.Columns.Add("Author", 150);
+            booksListView.Columns.Add("Checked Out", 120);
 
-            //Add items in the listview
-            string[] arr = new string[4];
-            ListViewItem itm;
+            if (File.Exists("books.txt"))
+            {
+                List<Book> booksFromFile = new List<Book>();
 
-            //Add first item
-            arr[0] = "product_1";
-            arr[1] = "100";
-            arr[2] = "10";
-            itm = new ListViewItem(arr);
-            booksListView.Items.Add(itm);
+                BookSerializer serializer = new BookSerializer();
+                BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
+                serializedBooks = serializer.DeSerializeObject("books.txt");
+                booksFromFile = serializedBooks.Books;
 
-            //Add second item
-            arr[0] = "product_2";
-            arr[1] = "200";
-            arr[2] = "20";
-            itm = new ListViewItem(arr);
-            booksListView.Items.Add(itm);
+                foreach (Book b in booksFromFile)
+                {
+                    ListViewItem itm;
+                    string[] bk = new String[4];
+
+                    bk[0] = b.GetId().ToString();
+                    bk[1] = b.GetTitle();
+                    bk[2] = b.GetAuthor();
+                    // Is it in stock?
+                    if(b.IsCheckedOut()) {
+                        bk[3] = "Out of Stock";
+                    }
+                    else
+                    {
+                        bk[3] = "In Stock";
+                    }
+                    itm = new ListViewItem(bk);
+                    booksListView.Items.Add(itm);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void addBookButton_Click(object sender, EventArgs e)
@@ -49,6 +68,18 @@ namespace LibraryViews
             AddBookView addBooks = new AddBookView();
             BooksView.ActiveForm.Hide();
             addBooks.Show();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            BooksView.ActiveForm.Close();
+            Main main = new Main();
+            main.Show();
         }
     }
 }
