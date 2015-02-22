@@ -59,6 +59,7 @@
     <Compile Include="BooksView.Designer.cs">
       <DependentUpon>BooksView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="CustomersView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,10 +110,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryControllers\LibraryControllers.csproj">
-      <Project>{3427bee1-4a21-412c-aecd-7d35a0376e33}</Project>
-      <Name>LibraryControllers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LibraryModels\LibraryModels.csproj">
       <Project>{9b6a9347-615d-400f-b544-97c22111b8fd}</Project>
       <Name>LibraryModels</Name>
@@ -126,8 +123,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
-if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

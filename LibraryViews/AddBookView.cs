@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryViews.Controllers;
 
 namespace LibraryViews
 {
@@ -24,56 +25,61 @@ namespace LibraryViews
 
         private void addBookButton_Click(object sender, EventArgs e)
         {
+            bool allFeildsFull = true;
             string title = titleTextBox.Text;
+            if (title == "")
+            {
+                allFeildsFull = false;
+            }
             string author = authorTextBox.Text;
+            if (author == "")
+            {
+                allFeildsFull = false;
+            }
             string publisher = publisherTextBox.Text;
+            if (publisher == "")
+            {
+                allFeildsFull = false;
+            }
             string isbn = isbnTextBox.Text;
-            bool success = false;
-
-            Book book = new Book(title, author, publisher, isbn);
-
-            if (File.Exists("books.txt"))
+            if (isbn == "")
             {
-                BookSerializer serializer = new BookSerializer();
-                BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
-                serializedBooks = serializer.DeSerializeObject("books.txt");
-
-                List<Book> booksFromFile = new List<Book>();
-                booksFromFile = serializedBooks.Books;
-
-                booksFromFile.Add(book);
-
-                BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-                newSerializedBooks.Books = booksFromFile;
-                serializer.SerializeObject("books.txt", newSerializedBooks);
-
-                success = true;
+                allFeildsFull = false;
             }
-            else
+            // Only forms with all fields completed shall pass
+            // If that is false, display an error message
+            // and pause program
+            if (allFeildsFull == false)
             {
-                List<Book> booksNew = new List<Book>();
-                booksNew.Add(book);
-
-                BookSerializer serializer = new BookSerializer();
-                BookObjectToSerialize serializeBook = new BookObjectToSerialize();
-                serializeBook.Books = booksNew;
-                serializer.SerializeObject("books.txt", serializeBook);
-
-                success = true;
+                MessageBox.Show("ERROR! All fields must be filled out.");
             }
-            // Let the user know if the book was added successfully or not.
-            if (success)
+            else // All fields have data, so continue.
             {
-                MessageBox.Show(successString);
-                titleTextBox.Text = "";
-                authorTextBox.Text = "";
-                publisherTextBox.Text = "";
-                isbnTextBox.Text = "";
-            }
-            else
-            {
-                MessageBox.Show(noSuccessString);
-            }
+                bool success = false;
+                Book book = new Book(title, author, publisher, isbn);
+
+                if (File.Exists("books.txt"))
+                {
+                    success = BooksController.AddBookToExistingList(book);
+                }
+                else
+                {
+                    success = BooksController.AddBookToNewList(book);
+                }
+                // Let the user know if the book was added successfully or not.
+                if (success)
+                {
+                    MessageBox.Show(successString);
+                    titleTextBox.Text = "";
+                    authorTextBox.Text = "";
+                    publisherTextBox.Text = "";
+                    isbnTextBox.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show(noSuccessString);
+                }
+            } 
         }
 
         private void exitButton_Click(object sender, EventArgs e)

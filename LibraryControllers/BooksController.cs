@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryControllers
 {
-    public class BookController
+    public class BooksController
     {
 
     }

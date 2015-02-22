@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryViews.Controllers;
 
 namespace LibraryViews
 {
@@ -19,7 +20,7 @@ namespace LibraryViews
             // Populate the list view with Book objects
             InitializeComponent();
             booksListView.View = View.Details;
-            booksListView.GridLines = true;
+            booksListView.GridLines = false;
             booksListView.FullRowSelect = true;
 
             //Add column header
@@ -28,34 +29,10 @@ namespace LibraryViews
             booksListView.Columns.Add("Author", 150);
             booksListView.Columns.Add("Checked Out", 120);
 
+            //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                List<Book> booksFromFile = new List<Book>();
-
-                BookSerializer serializer = new BookSerializer();
-                BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
-                serializedBooks = serializer.DeSerializeObject("books.txt");
-                booksFromFile = serializedBooks.Books;
-
-                foreach (Book b in booksFromFile)
-                {
-                    ListViewItem itm;
-                    string[] bk = new String[4];
-
-                    bk[0] = b.GetId().ToString();
-                    bk[1] = b.GetTitle();
-                    bk[2] = b.GetAuthor();
-                    // Is it in stock?
-                    if(b.IsCheckedOut()) {
-                        bk[3] = "Out of Stock";
-                    }
-                    else
-                    {
-                        bk[3] = "In Stock";
-                    }
-                    itm = new ListViewItem(bk);
-                    booksListView.Items.Add(itm);
-                }
+                BooksController.PopulateMainBooksViewList(booksListView);
             }
             else
             {
