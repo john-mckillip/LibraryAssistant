@@ -58,7 +58,7 @@
             this.booksListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.booksListView.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.booksListView.ForeColor = System.Drawing.Color.Black;
-            this.booksListView.Location = new System.Drawing.Point(25, 68);
+            this.booksListView.Location = new System.Drawing.Point(25, 60);
             this.booksListView.Name = "booksListView";
             this.booksListView.Size = new System.Drawing.Size(550, 371);
             this.booksListView.TabIndex = 2;
@@ -84,6 +84,7 @@
             // 
             this.backButton.BackColor = System.Drawing.Color.Black;
             this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.backButton.ForeColor = System.Drawing.Color.White;
@@ -124,6 +125,7 @@
             this.editButton.TabIndex = 6;
             this.editButton.Text = "EDIT BOOK";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // button1
             // 

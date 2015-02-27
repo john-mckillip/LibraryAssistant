@@ -13,12 +13,13 @@ namespace LibraryModels
     [Serializable()]
     public class Book : ISerializable
     {
-        private int id { get; set; }
-        private string title { get; set;}
-        private string author { get; set; }
-        private string publisher { get; set; }
-        private string isbnNum { get; set; }
-        private bool isCheckedOut { get; set; }
+        private int id;
+        private string title;
+        private string author;
+        private string publisher;
+        private string isbnNum;
+        private bool isCheckedOut;
+        private int checkedOutBy; //ToDo: method to assign this value
 
         private int AssignId()
         {

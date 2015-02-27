@@ -75,5 +75,26 @@ namespace LibraryViews.Controllers
 
             return success;
         }
+
+        public static Book GetBook(int id)
+        {
+            List<Book> booksFromFile = new List<Book>();
+            int index = 0;
+
+            BookSerializer serializer = new BookSerializer();
+            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
+            serializedBooks = serializer.DeSerializeObject("books.txt");
+            booksFromFile = serializedBooks.Books;
+
+            foreach (Book b in booksFromFile)
+            {
+                if (b.GetId() == id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return booksFromFile[index];
+        }
     }
 }

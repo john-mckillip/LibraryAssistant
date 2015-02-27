@@ -11,13 +11,13 @@ namespace LibraryModels
     [Serializable()]
     public class Customer : ISerializable
     {
-        private int accountNumber { get; set; }
-        private string firstName { get; set; }
-        private string lastName { get; set; }
-        private string phoneNumber { get; set; }
-        private string emailAddress { get; set; }
-        private bool hasFines { get; set; }
-        private decimal fines { get; set; }
+        private int accountNumber;
+        private string firstName;
+        private string lastName;
+        private string phoneNumber;
+        private string emailAddress;
+        private bool hasFines;
+        private decimal fines;
 
         private int CreateAccountNumber()
         {

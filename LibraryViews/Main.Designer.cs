@@ -61,6 +61,7 @@
             // 
             this.booksButton.BackColor = System.Drawing.Color.Black;
             this.booksButton.FlatAppearance.BorderSize = 0;
+            this.booksButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.booksButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.booksButton.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.booksButton.ForeColor = System.Drawing.Color.White;
@@ -76,6 +77,7 @@
             // 
             this.customersButton.BackColor = System.Drawing.Color.Black;
             this.customersButton.FlatAppearance.BorderSize = 0;
+            this.customersButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.customersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customersButton.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customersButton.ForeColor = System.Drawing.Color.White;

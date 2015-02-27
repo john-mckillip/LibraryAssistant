@@ -1,4 +1,5 @@
 ﻿using LibraryModels;
+using LibraryViews.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,9 @@ using LibraryViews.Controllers;
 
 namespace LibraryViews
 {
-    public partial class BooksView : Form
+    public partial class EditBookView : Form
     {
-        public BooksView()
+        public EditBookView()
         {
             // Populate the list view with Book objects
             InitializeComponent();
@@ -40,20 +41,6 @@ namespace LibraryViews
             }
         }
 
-        private void addBookButton_Click(object sender, EventArgs e)
-        {
-            AddBookView addBooks = new AddBookView();
-            BooksView.ActiveForm.Hide();
-            addBooks.Show();
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            EditBookView editBook = new EditBookView();
-            BooksView.ActiveForm.Hide();
-            editBook.Show();
-        }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -61,9 +48,17 @@ namespace LibraryViews
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            BooksView.ActiveForm.Close();
-            Main main = new Main();
-            main.Show();
+            EditBookView.ActiveForm.Close();
+            BooksView booksView = new BooksView();
+            booksView.Show();
+        }
+
+        private void getBookButton_Click(object sender, EventArgs e)
+        {
+            int bookId = Convert.ToInt32(idTextBox.Text);
+            Book b = BooksController.GetBook(bookId);
+
+            titleTextBox.Text = b.GetTitle();
         }
     }
 }

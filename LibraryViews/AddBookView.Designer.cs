@@ -118,6 +118,7 @@
             // 
             this.addBookButton.BackColor = System.Drawing.Color.Black;
             this.addBookButton.FlatAppearance.BorderSize = 0;
+            this.addBookButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.addBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBookButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.addBookButton.ForeColor = System.Drawing.Color.White;
@@ -149,6 +150,7 @@
             this.backButton.AutoSize = true;
             this.backButton.BackColor = System.Drawing.Color.Black;
             this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.backButton.ForeColor = System.Drawing.Color.White;
