@@ -42,6 +42,18 @@ namespace LibraryViews.Controllers
             return l;
         }
 
+        public static List<Book> getBooksList()
+        {
+            BookSerializer serializer = new BookSerializer();
+            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
+            serializedBooks = serializer.DeSerializeObject("books.txt");
+
+            List<Book> booksFromFile = new List<Book>();
+            booksFromFile = serializedBooks.Books;
+
+            return booksFromFile;
+        }
+
         public static bool AddBookToExistingList(Book b) 
         {
             bool success = false;
@@ -95,6 +107,47 @@ namespace LibraryViews.Controllers
                 index++;
             }
             return booksFromFile[index];
+        }
+
+        public static bool UpdateBook(int i, string t, string a, string p, string isb) {
+
+            bool success = false;
+            int id = i;
+            int counter = 0;
+
+            try
+            {
+                Book updatedBook = new Book(t, a, p, isb);
+                updatedBook.SetId(id);
+                List<Book> books = new List<Book>();
+                books = getBooksList();
+
+                foreach (Book b in books)
+                {
+                    if (b.GetId() == i)
+                    {
+                        books.RemoveAt(counter);
+                        books.Insert(counter, updatedBook);
+                        break;
+                    }
+                    counter++;
+                }
+
+                BookSerializer serializer = new BookSerializer();
+                BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
+                newSerializedBooks.Books = books;
+                serializer.SerializeObject("books.txt", newSerializedBooks);
+                success = true;
+
+                return success;
+            }
+
+            catch
+            {
+                success = false;
+                return success;
+            }
+            
         }
     }
 }

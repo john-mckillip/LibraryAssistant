@@ -137,6 +137,7 @@
             this.updateBookButton.TabIndex = 19;
             this.updateBookButton.Text = "UPDATE BOOK";
             this.updateBookButton.UseVisualStyleBackColor = false;
+            this.updateBookButton.Click += new System.EventHandler(this.updateBookButton_Click);
             // 
             // isbnLabel
             // 

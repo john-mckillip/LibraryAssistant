@@ -72,6 +72,26 @@ namespace LibraryModels
             this.author = a;
         }
 
+        public string GetPublisher()
+        {
+            return this.publisher;
+        }
+
+        public void SetPublisher(string p)
+        {
+            this.publisher = p;
+        }
+
+        public string GetIsbn()
+        {
+            return this.isbnNum;
+        }
+
+        public void SetIsbn(string i)
+        {
+            this.isbnNum = i;
+        }
+
         public bool IsCheckedOut()
         {
             return this.isCheckedOut;

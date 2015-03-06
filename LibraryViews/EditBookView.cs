@@ -10,16 +10,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryViews.Controllers;
+
 
 namespace LibraryViews
 {
     public partial class EditBookView : Form
     {
-        public EditBookView()
+        private string updateSuccessString = "The book was successfully updated.";
+        private string updateNoSuccessString = "Sorry, there was an error updating the book. Please try again.";
+        private string idNoSuccssString = "Sorry, there was an error getting the book. Please try again.";
+        
+        // Private method that populates the columns of booksListView
+        private void populateListView()
         {
-            // Populate the list view with Book objects
-            InitializeComponent();
             booksListView.View = View.Details;
             booksListView.GridLines = false;
             booksListView.FullRowSelect = true;
@@ -29,6 +32,23 @@ namespace LibraryViews
             booksListView.Columns.Add("Title", 200);
             booksListView.Columns.Add("Author", 150);
             booksListView.Columns.Add("Checked Out", 120);
+        }
+
+        private void ClearBookFields()
+        {
+            idTextBox.Text = "";
+            titleTextBox.Text = "";
+            authorTextBox.Text = "";
+            publisherTextBox.Text = "";
+            isbnTextBox.Text = "";
+        }
+
+        public EditBookView()
+        {
+            InitializeComponent();
+
+            // Populate the list view columns
+            populateListView();
 
             //Populate the list with the data
             if (File.Exists("books.txt"))
@@ -55,10 +75,49 @@ namespace LibraryViews
 
         private void getBookButton_Click(object sender, EventArgs e)
         {
-            int bookId = Convert.ToInt32(idTextBox.Text);
-            Book b = BooksController.GetBook(bookId);
+            try
+            {
+                int bookId = Convert.ToInt32(idTextBox.Text);
+                Book b = BooksController.GetBook(bookId);
 
-            titleTextBox.Text = b.GetTitle();
+                titleTextBox.Text = b.GetTitle();
+                authorTextBox.Text = b.GetAuthor();
+                publisherTextBox.Text = b.GetPublisher();
+                isbnTextBox.Text = b.GetIsbn();
+            }
+
+            catch
+            {
+                MessageBox.Show(idNoSuccssString);
+            }
+            
+        }
+
+        private void updateBookButton_Click(object sender, EventArgs e)
+        {
+            int bookId = Convert.ToInt32(idTextBox.Text);
+            string title = titleTextBox.Text;
+            string author = authorTextBox.Text;
+            string publisher = publisherTextBox.Text;
+            string isbn = isbnTextBox.Text;
+            bool success = BooksController.UpdateBook(bookId, title, author, publisher, isbn);
+            
+            if (success == true)
+            {
+                MessageBox.Show(updateSuccessString);
+                ClearBookFields();
+
+                booksListView.Clear();
+
+                populateListView();
+                BooksController.PopulateMainBooksViewList(booksListView);
+            }
+            else
+            {
+                MessageBox.Show(updateNoSuccessString);
+                ClearBookFields();
+            }
+
         }
     }
 }
