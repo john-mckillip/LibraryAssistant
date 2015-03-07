@@ -16,5 +16,17 @@ namespace LibraryViews
         {
             InitializeComponent();
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            CustomersView.ActiveForm.Close();
+            Main main = new Main();
+            main.Show();
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace LibraryViews
         private string updateSuccessString = "The book was successfully updated.";
         private string updateNoSuccessString = "Sorry, there was an error updating the book. Please try again.";
         private string idNoSuccssString = "Sorry, there was an error getting the book. Please try again.";
+        private string deleteSuccessString = "The book was successfully deleted.";
+        private string deleteNoSuccessString = "Sorry, there was an error deleting the book. Please try again.";
         
         // Private method that populates the columns of booksListView
         private void populateListView()
@@ -89,35 +91,94 @@ namespace LibraryViews
             catch
             {
                 MessageBox.Show(idNoSuccssString);
+            } 
+        }
+
+        private void deleteBookButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (idTextBox.Text != "")
+                {
+                    int bookId = Convert.ToInt32(idTextBox.Text);
+                    bool success = BooksController.DeleteBook(bookId);
+
+                    if (success)
+                    {
+                        MessageBox.Show(deleteSuccessString);
+                        ClearBookFields();
+
+                        booksListView.Clear();
+
+                        populateListView();
+                        BooksController.PopulateMainBooksViewList(booksListView);
+                    }
+                    else
+                    {
+                        MessageBox.Show(deleteNoSuccessString);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(deleteNoSuccessString);
+                }            
             }
-            
+            catch
+            {
+                MessageBox.Show(deleteNoSuccessString);
+            }
         }
 
         private void updateBookButton_Click(object sender, EventArgs e)
         {
-            int bookId = Convert.ToInt32(idTextBox.Text);
-            string title = titleTextBox.Text;
-            string author = authorTextBox.Text;
-            string publisher = publisherTextBox.Text;
-            string isbn = isbnTextBox.Text;
-            bool success = BooksController.UpdateBook(bookId, title, author, publisher, isbn);
-            
-            if (success == true)
+            int empty = 0;
+            if (idTextBox.Text != "")
             {
-                MessageBox.Show(updateSuccessString);
-                ClearBookFields();
+                int bookId = Convert.ToInt32(idTextBox.Text);
+                string title = titleTextBox.Text;
+                if (title == "")
+                {
+                    empty = 1;
+                }
+                string author = authorTextBox.Text;
+                if (author == "")
+                {
+                    empty = 1;
+                }
+                string publisher = publisherTextBox.Text;
+                if (publisher == "")
+                {
+                    empty = 1;
+                }
+                string isbn = isbnTextBox.Text;
+                if (isbn == "")
+                {
+                    empty = 1;
+                }
 
-                booksListView.Clear();
+                if (empty == 0)
+                {
+                    bool success = BooksController.UpdateBook(bookId, title, author, publisher, isbn);
+                    if (success == true)
+                    {
+                        MessageBox.Show(updateSuccessString);
+                        ClearBookFields();
 
-                populateListView();
-                BooksController.PopulateMainBooksViewList(booksListView);
+                        booksListView.Clear();
+
+                        populateListView();
+                        BooksController.PopulateMainBooksViewList(booksListView);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(updateNoSuccessString);
+                }
             }
             else
             {
                 MessageBox.Show(updateNoSuccessString);
-                ClearBookFields();
             }
-
         }
     }
 }

@@ -42,6 +42,16 @@ namespace LibraryModels
             this.isCheckedOut = false;
         }
 
+        public Book(int i, string t, string a, string p, string iNum)
+        {
+            this.id = i;
+            this.title = t;
+            this.author = a;
+            this.publisher = p;
+            this.isbnNum = iNum;
+            this.isCheckedOut = false;
+        }
+
         public int GetId()
         {
             return this.id;
@@ -90,6 +100,11 @@ namespace LibraryModels
         public void SetIsbn(string i)
         {
             this.isbnNum = i;
+        }
+
+        public void CheckOut()
+        {
+            this.isCheckedOut = true;
         }
 
         public bool IsCheckedOut()

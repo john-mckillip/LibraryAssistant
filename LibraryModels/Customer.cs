@@ -18,7 +18,8 @@ namespace LibraryModels
         private string emailAddress;
         private bool hasFines;
         private decimal fines;
-
+        private List<Int32> checkedOutBooks;
+                    
         private int CreateAccountNumber()
         {
             StreamReader sr = new StreamReader("account-num.txt");
@@ -39,6 +40,31 @@ namespace LibraryModels
             this.emailAddress = eAddy;
             this.hasFines = false; // New customer can't have fines
             this.fines = 0.00m; // So the total when created is 0
+            this.checkedOutBooks = new List<Int32>();
+        }
+
+        public List<Int32> GetCheckedOutBooks()
+        {
+            return this.checkedOutBooks;
+        }
+
+        public void CheckOutBook(int id)
+        {
+            checkedOutBooks.Add(id);
+        }
+
+        public void CheckInBook(int id)
+        {
+            int counter = 0;
+            foreach (Int32 b in checkedOutBooks)
+            {
+                if (b == id)
+                {
+                    checkedOutBooks.RemoveAt(counter);
+                    break;
+                }
+                counter++;
+            }
         }
 
         public int GetAccountNumber()

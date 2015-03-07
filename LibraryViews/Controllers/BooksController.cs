@@ -109,6 +109,34 @@ namespace LibraryViews.Controllers
             return booksFromFile[index];
         }
 
+        public static bool DeleteBook(int i)
+        {
+            bool success = false;
+            int id = i;
+            int counter = 0;
+
+            List<Book> books = new List<Book>();
+            books = getBooksList();
+
+            foreach (Book b in books)
+            {
+                if (b.GetId() == i)
+                {
+                    books.RemoveAt(counter);
+                    break;
+                }
+                counter++;
+            }
+
+            BookSerializer serializer = new BookSerializer();
+            BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
+            newSerializedBooks.Books = books;
+            serializer.SerializeObject("books.txt", newSerializedBooks);
+            success = true;
+
+            return success;
+        }
+
         public static bool UpdateBook(int i, string t, string a, string p, string isb) {
 
             bool success = false;
@@ -117,8 +145,7 @@ namespace LibraryViews.Controllers
 
             try
             {
-                Book updatedBook = new Book(t, a, p, isb);
-                updatedBook.SetId(id);
+                Book updatedBook = new Book(i,t, a, p, isb);
                 List<Book> books = new List<Book>();
                 books = getBooksList();
 

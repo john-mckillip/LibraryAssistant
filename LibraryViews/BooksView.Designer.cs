@@ -67,8 +67,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.exitButton.BackColor = System.Drawing.Color.DarkRed;
             this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.exitButton.ForeColor = System.Drawing.Color.White;

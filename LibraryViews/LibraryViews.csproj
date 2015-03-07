@@ -60,6 +60,7 @@
       <DependentUpon>BooksView.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="CustomersView.cs">
       <SubType>Form</SubType>
     </Compile>

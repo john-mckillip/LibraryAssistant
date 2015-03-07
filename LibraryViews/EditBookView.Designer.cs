@@ -43,6 +43,7 @@
             this.publisherTextBox = new System.Windows.Forms.TextBox();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.deleteBookButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // backButton
@@ -63,8 +64,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.exitButton.BackColor = System.Drawing.Color.DarkRed;
             this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
@@ -212,11 +214,28 @@
             this.titleTextBox.Size = new System.Drawing.Size(290, 35);
             this.titleTextBox.TabIndex = 11;
             // 
+            // deleteBookButton
+            // 
+            this.deleteBookButton.BackColor = System.Drawing.Color.DarkRed;
+            this.deleteBookButton.FlatAppearance.BorderSize = 0;
+            this.deleteBookButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.deleteBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBookButton.Font = new System.Drawing.Font("Roboto", 10F);
+            this.deleteBookButton.ForeColor = System.Drawing.Color.White;
+            this.deleteBookButton.Location = new System.Drawing.Point(23, 508);
+            this.deleteBookButton.Name = "deleteBookButton";
+            this.deleteBookButton.Size = new System.Drawing.Size(117, 39);
+            this.deleteBookButton.TabIndex = 20;
+            this.deleteBookButton.Text = "DELETE BOOK";
+            this.deleteBookButton.UseVisualStyleBackColor = false;
+            this.deleteBookButton.Click += new System.EventHandler(this.deleteBookButton_Click);
+            // 
             // EditBookView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 733);
+            this.Controls.Add(this.deleteBookButton);
             this.Controls.Add(this.updateBookButton);
             this.Controls.Add(this.isbnLabel);
             this.Controls.Add(this.publisherLabel);
@@ -256,5 +275,6 @@
         private System.Windows.Forms.TextBox publisherTextBox;
         private System.Windows.Forms.TextBox authorTextBox;
         private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.Button deleteBookButton;
     }
 }
