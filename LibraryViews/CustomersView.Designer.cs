@@ -32,7 +32,7 @@
             this.checkoutButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.booksListView = new System.Windows.Forms.ListView();
+            this.customersListView = new System.Windows.Forms.ListView();
             this.addCustomerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -98,17 +98,17 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // booksListView
+            // customersListView
             // 
-            this.booksListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.booksListView.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.booksListView.ForeColor = System.Drawing.Color.Black;
-            this.booksListView.Location = new System.Drawing.Point(25, 63);
-            this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(550, 371);
-            this.booksListView.TabIndex = 9;
-            this.booksListView.UseCompatibleStateImageBehavior = false;
-            this.booksListView.View = System.Windows.Forms.View.Details;
+            this.customersListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customersListView.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customersListView.ForeColor = System.Drawing.Color.Black;
+            this.customersListView.Location = new System.Drawing.Point(25, 63);
+            this.customersListView.Name = "customersListView";
+            this.customersListView.Size = new System.Drawing.Size(550, 371);
+            this.customersListView.TabIndex = 9;
+            this.customersListView.UseCompatibleStateImageBehavior = false;
+            this.customersListView.View = System.Windows.Forms.View.Details;
             // 
             // addCustomerButton
             // 
@@ -124,6 +124,7 @@
             this.addCustomerButton.TabIndex = 8;
             this.addCustomerButton.Text = "ADD CUSTOMER";
             this.addCustomerButton.UseVisualStyleBackColor = false;
+            this.addCustomerButton.Click += new System.EventHandler(this.addCustomerButton_Click);
             // 
             // CustomersView
             // 
@@ -134,7 +135,7 @@
             this.Controls.Add(this.checkoutButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.booksListView);
+            this.Controls.Add(this.customersListView);
             this.Controls.Add(this.addCustomerButton);
             this.Name = "CustomersView";
             this.Text = "Customers";
@@ -148,7 +149,7 @@
         private System.Windows.Forms.Button checkoutButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.ListView booksListView;
+        private System.Windows.Forms.ListView customersListView;
         private System.Windows.Forms.Button addCustomerButton;
     }
 }

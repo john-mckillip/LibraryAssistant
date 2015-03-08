@@ -122,6 +122,18 @@ namespace LibraryModels
             return fines;
         }
 
+        public string DoesHasFines()
+        {
+            if (this.hasFines)
+            {
+                return "Yes";
+            }
+            else
+            {
+                return "No";
+            }
+        }
+
         // Add a fine to a customer object
         public void AddFine(decimal fine) 
         {

@@ -53,6 +53,12 @@
     <Compile Include="AddBookView.Designer.cs">
       <DependentUpon>AddBookView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCustomerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCustomerView.Designer.cs">
+      <DependentUpon>AddCustomerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="BooksView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddBookView.resx">
       <DependentUpon>AddBookView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCustomerView.resx">
+      <DependentUpon>AddCustomerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BooksView.resx">
       <DependentUpon>BooksView.cs</DependentUpon>
