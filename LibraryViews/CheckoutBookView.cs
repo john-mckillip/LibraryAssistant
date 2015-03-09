@@ -1,4 +1,5 @@
 ﻿using LibraryModels;
+using LibraryViews.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,16 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryViews.Controllers;
 
 namespace LibraryViews
 {
-    public partial class BooksView : Form
+    public partial class CheckoutBookView : Form
     {
-        public BooksView()
+        private string successString = "The book was checked out successfully.";
+        private string noSuccessString = "Sorry, there was an error. Please try again.";
+
+        // Private method that populates the columns of booksListView
+        private void populateListView()
         {
-            // Populate the list view with Book objects
-            InitializeComponent();
             booksListView.View = View.Details;
             booksListView.GridLines = false;
             booksListView.FullRowSelect = true;
@@ -28,6 +30,14 @@ namespace LibraryViews
             booksListView.Columns.Add("Title", 200);
             booksListView.Columns.Add("Author", 150);
             booksListView.Columns.Add("Checked Out", 120);
+        }
+
+        public CheckoutBookView()
+        {
+            InitializeComponent();
+
+            // Populate the list view columns
+            populateListView();
 
             //Populate the list with the data
             if (File.Exists("books.txt"))
@@ -38,20 +48,15 @@ namespace LibraryViews
             {
                 return;
             }
-        }
 
-        private void addBookButton_Click(object sender, EventArgs e)
-        {
-            AddBookView addBooks = new AddBookView();
-            BooksView.ActiveForm.Hide();
-            addBooks.Show();
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            EditBookView editBook = new EditBookView();
-            BooksView.ActiveForm.Hide();
-            editBook.Show();
+            if (File.Exists("customers.txt"))
+            {
+                CustomersController.PopulateCustomersComboBox(customerComboBox);
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -61,17 +66,9 @@ namespace LibraryViews
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            BooksView.ActiveForm.Close();
-            Main main = new Main();
-            main.Show();
-        }
-
-        private void checkoutButton_Click(object sender, EventArgs e)
-        {
-            CheckoutBookView checkoutBook = new CheckoutBookView();
-            BooksView.ActiveForm.Hide();
-            checkoutBook.Show();
-
+            CheckoutBookView.ActiveForm.Close();
+            BooksView books = new BooksView();
+            books.Show();
         }
     }
 }

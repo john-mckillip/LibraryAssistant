@@ -22,18 +22,33 @@ namespace LibraryViews.Controllers
             foreach (Customer c in customersFromFile)
             {
                 ListViewItem itm;
-                string[] cust = new String[5];
+                string[] cust = new String[4];
 
                 cust[0] = c.GetAccountNumber().ToString();
                 cust[1] = c.GetFirstName() + " " + c.GetLastName();
                 cust[2] = c.GetPhoneNumber();
                 cust[3] = c.GetEmailAddress();
-                cust[4] = c.DoesHasFines();
 
                 itm = new ListViewItem(cust);
                 l.Items.Add(itm);
             }
             return l;
+        }
+
+        public static ComboBox PopulateCustomersComboBox(ComboBox c)
+        {
+            List<Customer> customersFromFile = new List<Customer>();
+
+            CustomerSerializer serializer = new CustomerSerializer();
+            CustomerObjectToSerialize serializedCustomers = new CustomerObjectToSerialize();
+            serializedCustomers = serializer.DeSerializeObject("customers.txt");
+            customersFromFile = serializedCustomers.Customers;
+
+            c.DataSource = customersFromFile;
+
+
+            return c;
+
         }
 
         public static bool AddCustomerToExistingList(Customer c)

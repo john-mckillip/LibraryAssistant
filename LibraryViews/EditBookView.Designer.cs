@@ -89,6 +89,7 @@
             this.booksListView.TabIndex = 5;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
+            this.booksListView.SelectedIndexChanged += new System.EventHandler(this.booksListView_SelectedIndexChanged);
             // 
             // getIdLabel
             // 
@@ -100,6 +101,7 @@
             this.getIdLabel.Size = new System.Drawing.Size(65, 21);
             this.getIdLabel.TabIndex = 9;
             this.getIdLabel.Text = "Enter Id";
+            this.getIdLabel.Click += new System.EventHandler(this.getIdLabel_Click);
             // 
             // idTextBox
             // 
@@ -108,6 +110,7 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(173, 35);
             this.idTextBox.TabIndex = 8;
+            this.idTextBox.TextChanged += new System.EventHandler(this.idTextBox_TextChanged);
             // 
             // getBookButton
             // 
@@ -150,6 +153,7 @@
             this.isbnLabel.Size = new System.Drawing.Size(60, 21);
             this.isbnLabel.TabIndex = 18;
             this.isbnLabel.Text = "ISBN #";
+            this.isbnLabel.Click += new System.EventHandler(this.isbnLabel_Click);
             // 
             // publisherLabel
             // 
@@ -160,6 +164,7 @@
             this.publisherLabel.Size = new System.Drawing.Size(76, 21);
             this.publisherLabel.TabIndex = 17;
             this.publisherLabel.Text = "Publisher";
+            this.publisherLabel.Click += new System.EventHandler(this.publisherLabel_Click);
             // 
             // authorLabel
             // 
@@ -170,6 +175,7 @@
             this.authorLabel.Size = new System.Drawing.Size(58, 21);
             this.authorLabel.TabIndex = 16;
             this.authorLabel.Text = "Author";
+            this.authorLabel.Click += new System.EventHandler(this.authorLabel_Click);
             // 
             // titleLabel
             // 
@@ -181,6 +187,7 @@
             this.titleLabel.Size = new System.Drawing.Size(41, 21);
             this.titleLabel.TabIndex = 15;
             this.titleLabel.Text = "Title";
+            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // isbnTextBox
             // 
@@ -189,6 +196,7 @@
             this.isbnTextBox.Name = "isbnTextBox";
             this.isbnTextBox.Size = new System.Drawing.Size(290, 35);
             this.isbnTextBox.TabIndex = 14;
+            this.isbnTextBox.TextChanged += new System.EventHandler(this.isbnTextBox_TextChanged);
             // 
             // publisherTextBox
             // 
@@ -197,6 +205,7 @@
             this.publisherTextBox.Name = "publisherTextBox";
             this.publisherTextBox.Size = new System.Drawing.Size(290, 35);
             this.publisherTextBox.TabIndex = 13;
+            this.publisherTextBox.TextChanged += new System.EventHandler(this.publisherTextBox_TextChanged);
             // 
             // authorTextBox
             // 
@@ -205,6 +214,7 @@
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(290, 35);
             this.authorTextBox.TabIndex = 12;
+            this.authorTextBox.TextChanged += new System.EventHandler(this.authorTextBox_TextChanged);
             // 
             // titleTextBox
             // 
@@ -213,6 +223,7 @@
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(290, 35);
             this.titleTextBox.TabIndex = 11;
+            this.titleTextBox.TextChanged += new System.EventHandler(this.titleTextBox_TextChanged);
             // 
             // deleteBookButton
             // 

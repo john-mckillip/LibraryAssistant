@@ -65,6 +65,12 @@
     <Compile Include="BooksView.Designer.cs">
       <DependentUpon>BooksView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutBookView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutBookView.Designer.cs">
+      <DependentUpon>CheckoutBookView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="CustomersView.cs">
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BooksView.resx">
       <DependentUpon>BooksView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutBookView.resx">
+      <DependentUpon>CheckoutBookView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomersView.resx">
       <DependentUpon>CustomersView.cs</DependentUpon>

@@ -70,6 +70,7 @@ namespace LibraryViews
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            
             EditBookView.ActiveForm.Close();
             BooksView booksView = new BooksView();
             booksView.Show();
@@ -179,6 +180,61 @@ namespace LibraryViews
             {
                 MessageBox.Show(updateNoSuccessString);
             }
+        }
+
+        private void booksListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void getIdLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void idTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void isbnLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void publisherLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void authorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void isbnTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void publisherTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void authorTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

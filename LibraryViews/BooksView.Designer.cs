@@ -111,6 +111,7 @@
             this.checkoutButton.TabIndex = 5;
             this.checkoutButton.Text = "CHECK OUT BOOK";
             this.checkoutButton.UseVisualStyleBackColor = false;
+            this.checkoutButton.Click += new System.EventHandler(this.checkoutButton_Click);
             // 
             // editButton
             // 
