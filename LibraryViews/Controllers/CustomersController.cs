@@ -44,11 +44,11 @@ namespace LibraryViews.Controllers
             serializedCustomers = serializer.DeSerializeObject("customers.txt");
             customersFromFile = serializedCustomers.Customers;
 
-            c.DataSource = customersFromFile;
-
-
+            foreach (Customer cus in customersFromFile)
+            {
+                c.Items.Add(cus.GetAccountNumber().ToString() + " " + cus.GetName());
+            }
             return c;
-
         }
 
         public static bool AddCustomerToExistingList(Customer c)

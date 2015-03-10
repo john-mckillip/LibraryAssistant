@@ -160,7 +160,7 @@ namespace LibraryViews
                 if (empty == 0)
                 {
                     bool success = BooksController.UpdateBook(bookId, title, author, publisher, isbn);
-                    if (success == true)
+                    if (success)
                     {
                         MessageBox.Show(updateSuccessString);
                         ClearBookFields();

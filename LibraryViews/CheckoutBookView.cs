@@ -32,6 +32,11 @@ namespace LibraryViews
             booksListView.Columns.Add("Checked Out", 120);
         }
 
+        private void ClearBookFields()
+        {
+            idTextBox.Text = "";
+        }
+
         public CheckoutBookView()
         {
             InitializeComponent();
@@ -69,6 +74,52 @@ namespace LibraryViews
             CheckoutBookView.ActiveForm.Close();
             BooksView books = new BooksView();
             books.Show();
+        }
+
+        private void checkoutBookButton_Click(object sender, EventArgs e)
+        {
+
+            int empty = 0;
+            if (idTextBox.Text != "")
+            {
+                int bookId = Convert.ToInt32(idTextBox.Text);
+                Object selectedItem = customerComboBox.SelectedItem;
+                string cId = selectedItem.ToString();
+                if (cId == "")
+                {
+                    empty = 1;
+                }
+
+                if (empty == 0)
+                {
+                    string[] id = cId.Split(' ');
+                    int customerId = Convert.ToInt32(id[0]);
+                    bool success = BooksController.CheckoutBook(bookId);
+
+                    if (success)
+                    {
+                        MessageBox.Show(successString);
+                        ClearBookFields();
+
+                        booksListView.Clear();
+
+                        populateListView();
+                        BooksController.PopulateMainBooksViewList(booksListView);
+                    }
+                    else
+                    {
+                        MessageBox.Show(noSuccessString);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(noSuccessString);
+                }
+            }
+            else
+            {
+                MessageBox.Show(noSuccessString);
+            }                                      
         }
     }
 }

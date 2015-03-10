@@ -173,8 +173,49 @@ namespace LibraryViews.Controllers
             {
                 success = false;
                 return success;
+            } 
+        }
+
+        public static bool CheckoutBook(int i)
+        {
+            bool success = false;
+            int counter = 0;
+
+            try
+            {
+                Book book = GetBook(i);
+                if (!book.IsCheckedOut())
+                {
+                    book.CheckOut();
+
+                    List<Book> books = new List<Book>();
+                    books = getBooksList();
+
+                    foreach (Book b in books)
+                    {
+                        if (b.GetId() == i)
+                        {
+                            books.RemoveAt(counter);
+                            books.Insert(counter, book);
+                            break;
+                        }
+                        counter++;
+                    }
+
+                    BookSerializer serializer = new BookSerializer();
+                    BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
+                    newSerializedBooks.Books = books;
+                    serializer.SerializeObject("books.txt", newSerializedBooks);
+                    success = true;
+                }
+
+                return success;
             }
-            
+            catch
+            {
+                success = false;
+                return success;
+            }   
         }
     }
 }

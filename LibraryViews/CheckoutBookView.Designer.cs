@@ -52,6 +52,7 @@
             this.checkoutBookButton.TabIndex = 26;
             this.checkoutBookButton.Text = "CHECKOUT BOOK";
             this.checkoutBookButton.UseVisualStyleBackColor = false;
+            this.checkoutBookButton.Click += new System.EventHandler(this.checkoutBookButton_Click);
             // 
             // getIdLabel
             // 
@@ -118,11 +119,12 @@
             // 
             // customerComboBox
             // 
-            this.customerComboBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerComboBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerComboBox.FormattingEnabled = true;
+            this.customerComboBox.IntegralHeight = false;
             this.customerComboBox.Location = new System.Drawing.Point(211, 398);
             this.customerComboBox.Name = "customerComboBox";
-            this.customerComboBox.Size = new System.Drawing.Size(195, 36);
+            this.customerComboBox.Size = new System.Drawing.Size(195, 29);
             this.customerComboBox.TabIndex = 27;
             // 
             // label1
