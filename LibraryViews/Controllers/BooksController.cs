@@ -42,6 +42,34 @@ namespace LibraryViews.Controllers
             return l;
         }
 
+        public static ListView PopulateCheckInBooksViewList(ListView l)
+        {
+            List<Book> booksFromFile = new List<Book>();
+
+            BookSerializer serializer = new BookSerializer();
+            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
+            serializedBooks = serializer.DeSerializeObject("books.txt");
+            booksFromFile = serializedBooks.Books;
+
+            foreach (Book b in booksFromFile)
+            {
+                if (b.IsCheckedOut())
+                {
+                    ListViewItem itm;
+                    string[] bk = new String[4];
+
+                    bk[0] = b.GetId().ToString();
+                    bk[1] = b.GetTitle();
+                    bk[2] = b.GetAuthor();
+                    bk[3] = "Out of Stock";
+
+                    itm = new ListViewItem(bk);
+                    l.Items.Add(itm);
+                }               
+            }
+            return l;
+        }
+
         public static List<Book> getBooksList()
         {
             BookSerializer serializer = new BookSerializer();
@@ -216,6 +244,48 @@ namespace LibraryViews.Controllers
                 success = false;
                 return success;
             }   
+        }
+
+        public static bool CheckInBook(int i)
+        {
+            bool success = false;
+            int counter = 0;
+
+            try
+            {
+                Book book = GetBook(i);
+                if (book.IsCheckedOut())
+                {
+                    book.CheckIn();
+
+                    List<Book> books = new List<Book>();
+                    books = getBooksList();
+
+                    foreach (Book b in books)
+                    {
+                        if (b.GetId() == i)
+                        {
+                            books.RemoveAt(counter);
+                            books.Insert(counter, book);
+                            break;
+                        }
+                        counter++;
+                    }
+
+                    BookSerializer serializer = new BookSerializer();
+                    BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
+                    newSerializedBooks.Books = books;
+                    serializer.SerializeObject("books.txt", newSerializedBooks);
+                    success = true;
+                }
+
+                return success;
+            }
+            catch
+            {
+                success = false;
+                return success;
+            }
         }
     }
 }

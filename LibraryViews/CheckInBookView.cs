@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace LibraryViews
 {
-    public partial class CheckoutBookView : Form
+    public partial class CheckInBookView : Form
     {
-        private string successString = "The book was checked out successfully.";
+        private string successString = "The book was checked in successfully.";
         private string noSuccessString = "Sorry, there was an error. Please try again.";
 
         // Private method that populates the columns of booksListView
@@ -37,7 +37,7 @@ namespace LibraryViews
             idTextBox.Text = "";
         }
 
-        public CheckoutBookView()
+        public CheckInBookView()
         {
             InitializeComponent();
 
@@ -47,16 +47,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView);
-            }
-            else
-            {
-                return;
-            }
-
-            if (File.Exists("customers.txt"))
-            {
-                CustomersController.PopulateCustomersComboBox(customerComboBox);
+                BooksController.PopulateCheckInBooksViewList(booksListView);
             }
             else
             {
@@ -71,21 +62,17 @@ namespace LibraryViews
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            CheckoutBookView.ActiveForm.Close();
+            CheckInBookView.ActiveForm.Close();
             BooksView books = new BooksView();
             books.Show();
         }
 
-        private void checkoutBookButton_Click(object sender, EventArgs e)
+        private void checkInBookButton_Click(object sender, EventArgs e)
         {
-            if (idTextBox.Text != "" && customerComboBox.SelectedIndex > -1 )
+            if (idTextBox.Text != "")
             {
                 int bookId = Convert.ToInt32(idTextBox.Text);
-                Object selectedItem = customerComboBox.SelectedItem;
-                string cId = selectedItem.ToString();                              
-                string[] id = cId.Split(' ');
-                int customerId = Convert.ToInt32(id[0]);
-                bool success = BooksController.CheckoutBook(bookId);
+                bool success = BooksController.CheckInBook(bookId);
 
                 if (success)
                 {
@@ -95,18 +82,17 @@ namespace LibraryViews
                     booksListView.Clear();
 
                     populateListView();
-                    BooksController.PopulateMainBooksViewList(booksListView);
-                    customerComboBox.SelectedIndex = -1;
+                    BooksController.PopulateCheckInBooksViewList(booksListView);
                 }
                 else
                 {
-                    MessageBox.Show(noSuccessString);
+                    MessageBox.Show(noSuccessString + "1");
                 }
             }
             else
             {
                 MessageBox.Show(noSuccessString);
-            }                                      
+            }                      
         }
     }
 }

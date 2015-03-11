@@ -73,5 +73,12 @@ namespace LibraryViews
             checkoutBook.Show();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CheckInBookView checkInBook = new CheckInBookView();
+            BooksView.ActiveForm.Hide();
+            checkInBook.Show();
+        }
     }
 }

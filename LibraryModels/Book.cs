@@ -107,6 +107,11 @@ namespace LibraryModels
             this.isCheckedOut = true;
         }
 
+        public void CheckIn()
+        {
+            this.isCheckedOut = false;
+        }
+
         public bool IsCheckedOut()
         {
             return this.isCheckedOut;
