@@ -233,7 +233,7 @@
             this.deleteBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBookButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.deleteBookButton.ForeColor = System.Drawing.Color.White;
-            this.deleteBookButton.Location = new System.Drawing.Point(23, 508);
+            this.deleteBookButton.Location = new System.Drawing.Point(23, 498);
             this.deleteBookButton.Name = "deleteBookButton";
             this.deleteBookButton.Size = new System.Drawing.Size(117, 39);
             this.deleteBookButton.TabIndex = 20;

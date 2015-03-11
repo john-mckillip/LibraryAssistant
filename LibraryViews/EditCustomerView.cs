@@ -13,11 +13,10 @@ using LibraryViews.Controllers;
 
 namespace LibraryViews
 {
-    public partial class CustomersView : Form
+    public partial class EditCustomerView : Form
     {
-        public CustomersView()
+        public EditCustomerView()
         {
-            // Populate the list view with Book objects
             InitializeComponent();
             customersListView.View = View.Details;
             customersListView.GridLines = false;
@@ -40,30 +39,21 @@ namespace LibraryViews
             }
         }
 
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            CustomersView.ActiveForm.Close();
-            Main main = new Main();
-            main.Show();
-        }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void addCustomerButton_Click(object sender, EventArgs e)
+        private void backButton_Click(object sender, EventArgs e)
         {
-            CustomersView.ActiveForm.Close();
-            AddCustomerView addCustomers = new AddCustomerView();
-            addCustomers.Show();
+            EditCustomerView.ActiveForm.Close();
+            CustomersView custView = new CustomersView();
+            custView.Show();
         }
 
-        private void editCustomerButton_Click(object sender, EventArgs e)
+        private void getCustomerButton_Click(object sender, EventArgs e)
         {
-            CustomersView.ActiveForm.Close();
-            EditCustomerView editCust = new EditCustomerView();
-            editCust.Show();
+
         }
     }
 }

@@ -91,6 +91,12 @@
     <Compile Include="EditBookView.Designer.cs">
       <DependentUpon>EditBookView.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditCustomerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCustomerView.Designer.cs">
+      <DependentUpon>EditCustomerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditBookView.resx">
       <DependentUpon>EditBookView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomerView.resx">
+      <DependentUpon>EditCustomerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

@@ -50,6 +50,7 @@
             this.editCustomerButton.TabIndex = 13;
             this.editCustomerButton.Text = "EDIT CUSTOMERS";
             this.editCustomerButton.UseVisualStyleBackColor = false;
+            this.editCustomerButton.Click += new System.EventHandler(this.editCustomerButton_Click);
             // 
             // checkoutButton
             // 
