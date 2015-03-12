@@ -76,6 +76,7 @@
             this.updateCustomerButton.TabIndex = 35;
             this.updateCustomerButton.Text = "UPDATE CUSTOMER";
             this.updateCustomerButton.UseVisualStyleBackColor = false;
+            this.updateCustomerButton.Click += new System.EventHandler(this.updateCustomerButton_Click);
             // 
             // emailLabel
             // 

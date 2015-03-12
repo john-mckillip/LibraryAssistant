@@ -35,6 +35,7 @@ namespace LibraryViews.Controllers
             return l;
         }
 
+
         public static List<Customer> getCustomersList()
         {
             CustomerSerializer serializer = new CustomerSerializer();
@@ -145,6 +146,45 @@ namespace LibraryViews.Controllers
             success = true;
 
             return success;
+        }
+
+        public static bool UpdateCustomer(int a, string f, string l, string p, string e)
+        {
+
+            bool success = false;
+            int id = a;
+            int counter = 0;
+
+            try
+            {Customer updatedCustomer = new Customer(a, f, l, p, e);
+                List<Customer> customers = new List<Customer>();
+                customers = getCustomersList();
+
+                foreach (Customer c in customers)
+                {
+                    if (c.GetAccountNumber() == a)
+                    {
+                        customers.RemoveAt(counter);
+                        customers.Insert(counter, updatedCustomer);
+                        break;
+                    }
+                    counter++;
+                }
+
+                CustomerSerializer serializer = new CustomerSerializer();
+                CustomerObjectToSerialize newSerializedCustomers = new CustomerObjectToSerialize();
+                newSerializedCustomers.Customers = customers;
+                serializer.SerializeObject("customers.txt", newSerializedCustomers);
+                success = true;
+
+                return success;
+            }
+
+            catch
+            {
+                success = false;
+                return success;
+            }
         }
     }
 }

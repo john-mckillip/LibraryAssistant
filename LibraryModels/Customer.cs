@@ -43,6 +43,18 @@ namespace LibraryModels
             this.checkedOutBooks = new List<Int32>();
         }
 
+        public Customer(int aNum, string fName, string lName, string pNum, string eAddy)
+        {
+            this.accountNumber = aNum;
+            this.firstName = fName;
+            this.lastName = lName;
+            this.phoneNumber = pNum;
+            this.emailAddress = eAddy;
+            this.hasFines = false; // New customer can't have fines
+            this.fines = 0.00m; // So the total when created is 0
+            this.checkedOutBooks = new List<Int32>();
+        }
+
         public List<Int32> GetCheckedOutBooks()
         {
             return this.checkedOutBooks;

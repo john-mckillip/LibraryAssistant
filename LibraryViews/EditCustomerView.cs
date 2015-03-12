@@ -123,5 +123,57 @@ namespace LibraryViews
                 MessageBox.Show(deleteNoSuccessString);
             }
         }
+
+        private void updateCustomerButton_Click(object sender, EventArgs e)
+        {
+            int empty = 0;
+            if (idTextBox.Text != "")
+            {
+                int customerId = Convert.ToInt32(idTextBox.Text);
+                string firstName = firstNameTextBox.Text;
+                if (firstName == "")
+                {
+                    empty = 1;
+                }
+                string lastName = lastNameTextBox.Text;
+                if (lastName == "")
+                {
+                    empty = 1;
+                }
+                string phone = phoneTextBox.Text;
+                if (phone == "")
+                {
+                    empty = 1;
+                }
+                string email = emailTextBox.Text;
+                if (email == "")
+                {
+                    empty = 1;
+                }
+
+                if (empty == 0)
+                {
+                    bool success = CustomersController.UpdateCustomer(customerId,firstName,lastName,phone,email);
+                    if (success)
+                    {
+                        MessageBox.Show(updateSuccessString);
+                        ClearCustomerFields();
+
+                        customersListView.Clear();
+
+                        populateListView();
+                        CustomersController.PopulateMainCustomersViewList(customersListView);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(updateNoSuccessString);
+                }
+            }
+            else
+            {
+                MessageBox.Show(updateNoSuccessString);
+            }
+        }
     }
 }
