@@ -35,6 +35,18 @@ namespace LibraryViews.Controllers
             return l;
         }
 
+        public static List<Customer> getCustomersList()
+        {
+            CustomerSerializer serializer = new CustomerSerializer();
+            CustomerObjectToSerialize serializedCustomers = new CustomerObjectToSerialize();
+            serializedCustomers = serializer.DeSerializeObject("customers.txt");
+
+            List<Customer> customersFromFile = new List<Customer>();
+            customersFromFile = serializedCustomers.Customers;
+
+            return customersFromFile;
+        }
+
         public static ComboBox PopulateCustomersComboBox(ComboBox c)
         {
             List<Customer> customersFromFile = new List<Customer>();
@@ -80,6 +92,56 @@ namespace LibraryViews.Controllers
             CustomerObjectToSerialize serializeCustomer = new CustomerObjectToSerialize();
             serializeCustomer.Customers = customersNew;
             serializer.SerializeObject("customers.txt", serializeCustomer);
+            success = true;
+
+            return success;
+        }
+
+        public static Customer GetCustomer(int id)
+        {
+            List<Customer> customersFromFile = new List<Customer>();
+            int index = 0;
+
+            CustomerSerializer serializer = new CustomerSerializer();
+            CustomerObjectToSerialize serializedCustomers = new CustomerObjectToSerialize();
+            serializedCustomers = serializer.DeSerializeObject("customers.txt");
+            customersFromFile = serializedCustomers.Customers;
+
+            foreach (Customer c in customersFromFile)
+            {
+                if (c.GetAccountNumber() == id)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            return customersFromFile[index];     
+        }
+
+        public static bool DeleteCustomer(int i)
+        {
+            bool success = false;
+            int id = i;
+            int counter = 0;
+
+            List<Customer> customers = new List<Customer>();
+            customers = getCustomersList();
+
+            foreach (Customer c in customers)
+            {
+                if (c.GetAccountNumber() == i)
+                {
+                    customers.RemoveAt(counter);
+                    break;
+                }
+                counter++;
+            }
+
+            CustomerSerializer serializer = new CustomerSerializer();
+            CustomerObjectToSerialize newSerializedCustomers = new CustomerObjectToSerialize();
+            newSerializedCustomers.Customers = customers;
+            serializer.SerializeObject("customers.txt", newSerializedCustomers);
             success = true;
 
             return success;

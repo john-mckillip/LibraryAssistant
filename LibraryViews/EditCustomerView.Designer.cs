@@ -34,10 +34,10 @@
             this.phoneLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
-            this.isbnTextBox = new System.Windows.Forms.TextBox();
-            this.publisherTextBox = new System.Windows.Forms.TextBox();
-            this.authorTextBox = new System.Windows.Forms.TextBox();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.getCustomerButton = new System.Windows.Forms.Button();
             this.getIdLabel = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
@@ -60,6 +60,7 @@
             this.deleteCustomerButton.TabIndex = 36;
             this.deleteCustomerButton.Text = "DELETE CUSTOMER";
             this.deleteCustomerButton.UseVisualStyleBackColor = false;
+            this.deleteCustomerButton.Click += new System.EventHandler(this.deleteCustomerButton_Click);
             // 
             // updateCustomerButton
             // 
@@ -117,37 +118,37 @@
             this.firstNameLabel.TabIndex = 31;
             this.firstNameLabel.Text = "First Name";
             // 
-            // isbnTextBox
+            // emailTextBox
             // 
-            this.isbnTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isbnTextBox.Location = new System.Drawing.Point(285, 609);
-            this.isbnTextBox.Name = "isbnTextBox";
-            this.isbnTextBox.Size = new System.Drawing.Size(290, 35);
-            this.isbnTextBox.TabIndex = 30;
+            this.emailTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextBox.Location = new System.Drawing.Point(285, 609);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(290, 35);
+            this.emailTextBox.TabIndex = 30;
             // 
-            // publisherTextBox
+            // phoneTextBox
             // 
-            this.publisherTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherTextBox.Location = new System.Drawing.Point(285, 533);
-            this.publisherTextBox.Name = "publisherTextBox";
-            this.publisherTextBox.Size = new System.Drawing.Size(290, 35);
-            this.publisherTextBox.TabIndex = 29;
+            this.phoneTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneTextBox.Location = new System.Drawing.Point(285, 533);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(290, 35);
+            this.phoneTextBox.TabIndex = 29;
             // 
-            // authorTextBox
+            // lastNameTextBox
             // 
-            this.authorTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorTextBox.Location = new System.Drawing.Point(285, 465);
-            this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(290, 35);
-            this.authorTextBox.TabIndex = 28;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.Location = new System.Drawing.Point(285, 465);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(290, 35);
+            this.lastNameTextBox.TabIndex = 28;
             // 
-            // titleTextBox
+            // firstNameTextBox
             // 
-            this.titleTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(285, 399);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(290, 35);
-            this.titleTextBox.TabIndex = 27;
+            this.firstNameTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTextBox.Location = new System.Drawing.Point(285, 399);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(290, 35);
+            this.firstNameTextBox.TabIndex = 27;
             // 
             // getCustomerButton
             // 
@@ -239,10 +240,10 @@
             this.Controls.Add(this.phoneLabel);
             this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.firstNameLabel);
-            this.Controls.Add(this.isbnTextBox);
-            this.Controls.Add(this.publisherTextBox);
-            this.Controls.Add(this.authorTextBox);
-            this.Controls.Add(this.titleTextBox);
+            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.phoneTextBox);
+            this.Controls.Add(this.lastNameTextBox);
+            this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.getCustomerButton);
             this.Controls.Add(this.getIdLabel);
             this.Controls.Add(this.idTextBox);
@@ -264,10 +265,10 @@
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.TextBox isbnTextBox;
-        private System.Windows.Forms.TextBox publisherTextBox;
-        private System.Windows.Forms.TextBox authorTextBox;
-        private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Button getCustomerButton;
         private System.Windows.Forms.Label getIdLabel;
         private System.Windows.Forms.TextBox idTextBox;
