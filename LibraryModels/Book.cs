@@ -19,7 +19,6 @@ namespace LibraryModels
         private string publisher;
         private string isbnNum;
         private bool isCheckedOut;
-        private int checkedOutBy; //ToDo: method to assign this value
 
         private int AssignId()
         {

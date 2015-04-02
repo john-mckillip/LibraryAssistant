@@ -152,6 +152,24 @@ namespace LibraryModels
             this.fines += fine;
         }
 
+        public void AddBookToList(int id)
+        {
+            this.checkedOutBooks.Add(id);
+        }
+
+        public void RemoveBookFromList(int id)
+        {
+            int counter = 0;
+            foreach (int i in checkedOutBooks)
+            {
+                if (i == id)
+                {
+                    this.checkedOutBooks.RemoveAt(counter);
+                }
+                counter++;
+            }
+        }
+
         public override string ToString()
         {
             return String.Format("Account Number: {0}, Name:{1}, Phone:{2}, Email:{3}, Fines:{4}", accountNumber, firstName + " " + lastName, phoneNumber, emailAddress, "$" + fines);
