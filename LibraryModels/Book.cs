@@ -11,10 +11,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace LibraryModels
 {
     [Serializable()]
-    public class Book : ISerializable
+    public class Book : Media
     {
         private int id;
-        private string title;
+        //private string title;
         private string author;
         private string publisher;
         private string isbnNum;
@@ -32,9 +32,9 @@ namespace LibraryModels
 
         // Contstructor
         public Book(string t, string a, string p, string iNum)
+            : base(t)
         {
-            this.id = AssignId();
-            this.title = t;
+            this.id = AssignId();       
             this.author = a;
             this.publisher = p;
             this.isbnNum = iNum;
@@ -44,7 +44,7 @@ namespace LibraryModels
         public Book(int i, string t, string a, string p, string iNum)
         {
             this.id = i;
-            this.title = t;
+            this.Title = t;
             this.author = a;
             this.publisher = p;
             this.isbnNum = iNum;
@@ -63,12 +63,12 @@ namespace LibraryModels
 
         public string GetTitle()
         {
-            return this.title;
+            return this.Title;
         }
 
         public void SetTitle(string t)
         {
-            this.title = t;
+            this.Title = t;
         }
 
         public string GetAuthor()
@@ -118,14 +118,14 @@ namespace LibraryModels
 
         public override string ToString()
         {
-            return String.Format("Id: {0}, Title:{1}, Author:{2}, Publisher:{3}, ISBN:{4}, Checked Out:{3}", id, title, author, publisher, isbnNum, isCheckedOut);
+            return String.Format("Id: {0}, Title:{1}, Author:{2}, Publisher:{3}, ISBN:{4}, Checked Out:{3}", id, Title, author, publisher, isbnNum, isCheckedOut);
         }
 
         // Deserialization method
         public Book(SerializationInfo info, StreamingContext ctxt)
         {
             this.id = (int)info.GetValue("BookId", typeof(int));
-            this.title = (string)info.GetValue("BookTitle", typeof(string));
+            this.Title = (string)info.GetValue("BookTitle", typeof(string));
             this.author = (string)info.GetValue("BookAuthor", typeof(string));
             this.publisher = (string)info.GetValue("BookPublisher", typeof(string));
             this.isbnNum = (string)info.GetValue("ISBNNumber", typeof(string));
@@ -133,10 +133,10 @@ namespace LibraryModels
         }
 
         // Serialization method http://tech.pro/tutorial/618/csharp-tutorial-serialize-objects-to-a-file
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        public override void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             info.AddValue("BookId", this.id);
-            info.AddValue("BookTitle", this.title);
+            info.AddValue("BookTitle", this.Title);
             info.AddValue("BookAuthor", this.author);
             info.AddValue("BookPublisher", this.publisher);
             info.AddValue("ISBNNumber", this.isbnNum);

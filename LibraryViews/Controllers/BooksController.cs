@@ -70,7 +70,7 @@ namespace LibraryViews.Controllers
             return l;
         }
 
-        public static List<Book> getBooksList()
+        public static List<Book> GetBooksList()
         {
             BookSerializer serializer = new BookSerializer();
             BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
@@ -144,7 +144,7 @@ namespace LibraryViews.Controllers
             int counter = 0;
 
             List<Book> books = new List<Book>();
-            books = getBooksList();
+            books = GetBooksList();
 
             foreach (Book b in books)
             {
@@ -175,7 +175,7 @@ namespace LibraryViews.Controllers
             {
                 Book updatedBook = new Book(i,t, a, p, isb);
                 List<Book> books = new List<Book>();
-                books = getBooksList();
+                books = GetBooksList();
 
                 foreach (Book b in books)
                 {
@@ -217,7 +217,7 @@ namespace LibraryViews.Controllers
                     book.CheckOut();
 
                     List<Book> books = new List<Book>();
-                    books = getBooksList();
+                    books = GetBooksList();
 
                     foreach (Book b in books)
                     {
@@ -259,7 +259,7 @@ namespace LibraryViews.Controllers
                     book.CheckIn();
 
                     List<Book> books = new List<Book>();
-                    books = getBooksList();
+                    books = GetBooksList();
 
                     foreach (Book b in books)
                     {

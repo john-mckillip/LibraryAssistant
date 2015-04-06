@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibraryModels;
+using LibraryViews.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,13 @@ namespace LibraryViews
 {
     public partial class Main : Form
     {
+        public static List<Book> booksFromFile;
+
         public Main()
         {
             InitializeComponent();
+          
+            booksFromFile = BooksController.GetBooksList();
         }
 
         private void booksButton_Click(object sender, EventArgs e)
