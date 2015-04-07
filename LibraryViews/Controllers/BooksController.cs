@@ -10,14 +10,9 @@ namespace LibraryViews.Controllers
 {
     public class BooksController
     {
-        public static ListView PopulateMainBooksViewList(ListView l)
+        public static ListView PopulateMainBooksViewList(ListView l, List<Book> books)
         {
-            List<Book> booksFromFile = new List<Book>();
-
-            BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
-            serializedBooks = serializer.DeSerializeObject("books.txt");
-            booksFromFile = serializedBooks.Books;
+            List<Book> booksFromFile = books;
 
             foreach (Book b in booksFromFile)
             {
@@ -82,24 +77,32 @@ namespace LibraryViews.Controllers
             return booksFromFile;
         }
 
-        public static bool AddBookToExistingList(Book b) 
+        public static void SaveBooks(List<Book> newBooksList)
         {
-            bool success = false;
             BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
-            serializedBooks = serializer.DeSerializeObject("books.txt");
-
-            List<Book> booksFromFile = new List<Book>();
-            booksFromFile = serializedBooks.Books;
-            booksFromFile.Add(b);
-
             BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-            newSerializedBooks.Books = booksFromFile;
+            newSerializedBooks.Books = newBooksList;
             serializer.SerializeObject("books.txt", newSerializedBooks);
-            success = true;
-
-            return success;  
         }
+
+        //public static bool AddBookToExistingList(Book b) 
+        //{
+        //    bool success = false;
+        //    BookSerializer serializer = new BookSerializer();
+        //    BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
+        //    serializedBooks = serializer.DeSerializeObject("books.txt");
+
+        //    List<Book> booksFromFile = new List<Book>();
+        //    booksFromFile = serializedBooks.Books;
+        //    booksFromFile.Add(b);
+
+        //    BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
+        //    newSerializedBooks.Books = booksFromFile;
+        //    serializer.SerializeObject("books.txt", newSerializedBooks);
+        //    success = true;
+
+        //    return success;  
+        //}
 
         public static bool AddBookToNewList(Book b)
         {
@@ -137,14 +140,11 @@ namespace LibraryViews.Controllers
             return booksFromFile[index];
         }
 
-        public static bool DeleteBook(int i)
+        public static List<Book> DeleteBook(int i, List<Book> books)
         {
             bool success = false;
             int id = i;
             int counter = 0;
-
-            List<Book> books = new List<Book>();
-            books = GetBooksList();
 
             foreach (Book b in books)
             {
@@ -156,13 +156,9 @@ namespace LibraryViews.Controllers
                 counter++;
             }
 
-            BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-            newSerializedBooks.Books = books;
-            serializer.SerializeObject("books.txt", newSerializedBooks);
             success = true;
 
-            return success;
+            return books;
         }
 
         public static bool UpdateBook(int i, string t, string a, string p, string isb) {

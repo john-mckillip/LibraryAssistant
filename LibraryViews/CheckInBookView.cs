@@ -18,6 +18,8 @@ namespace LibraryViews
         private string successString = "The book was checked in successfully.";
         private string noSuccessString = "Sorry, there was an error. Please try again.";
 
+        public static List<Book> books;
+
         // Private method that populates the columns of booksListView
         private void populateListView()
         {
@@ -37,9 +39,11 @@ namespace LibraryViews
             idTextBox.Text = "";
         }
 
-        public CheckInBookView()
+        public CheckInBookView(List<Book> booksFromFile)
         {
             InitializeComponent();
+
+            books = booksFromFile;
 
             // Populate the list view columns
             populateListView();
@@ -57,14 +61,15 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            BooksController.SaveBooks(books);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            CheckInBookView.ActiveForm.Close();
-            BooksView books = new BooksView();
-            books.Show();
+            EditBookView.ActiveForm.Close();
+            BooksView booksView = new BooksView(books);
+            booksView.Show();
         }
 
         private void checkInBookButton_Click(object sender, EventArgs e)

@@ -21,6 +21,8 @@ namespace LibraryViews
         private string idNoSuccssString = "Sorry, there was an error getting the book. Please try again.";
         private string deleteSuccessString = "The book was successfully deleted.";
         private string deleteNoSuccessString = "Sorry, there was an error deleting the book. Please try again.";
+
+        public static List<Book> books;
         
         // Private method that populates the columns of booksListView
         private void populateListView()
@@ -45,9 +47,10 @@ namespace LibraryViews
             isbnTextBox.Text = "";
         }
 
-        public EditBookView()
+        public EditBookView(List<Book> booksFromFile)
         {
             InitializeComponent();
+            books = booksFromFile;
 
             // Populate the list view columns
             populateListView();
@@ -55,7 +58,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView);
+                BooksController.PopulateMainBooksViewList(booksListView, books);
             }
             else
             {
@@ -65,6 +68,7 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            BooksController.SaveBooks(books);
             Application.Exit();
         }
 
@@ -72,7 +76,7 @@ namespace LibraryViews
         {
             
             EditBookView.ActiveForm.Close();
-            BooksView booksView = new BooksView();
+            BooksView booksView = new BooksView(books);
             booksView.Show();
         }
 
@@ -102,9 +106,10 @@ namespace LibraryViews
                 if (idTextBox.Text != "")
                 {
                     int bookId = Convert.ToInt32(idTextBox.Text);
-                    bool success = BooksController.DeleteBook(bookId);
+                    int size = books.Count;
+                    books = BooksController.DeleteBook(bookId, books);
 
-                    if (success)
+                    if (books.Count == size - 1)
                     {
                         MessageBox.Show(deleteSuccessString);
                         ClearBookFields();
@@ -112,7 +117,7 @@ namespace LibraryViews
                         booksListView.Clear();
 
                         populateListView();
-                        BooksController.PopulateMainBooksViewList(booksListView);
+                        BooksController.PopulateMainBooksViewList(booksListView, books);
                     }
                     else
                     {
@@ -168,7 +173,7 @@ namespace LibraryViews
                         booksListView.Clear();
 
                         populateListView();
-                        BooksController.PopulateMainBooksViewList(booksListView);
+                        BooksController.PopulateMainBooksViewList(booksListView, books);
                     }
                 }
                 else

@@ -18,6 +18,8 @@ namespace LibraryViews
         private string successString = "The book was checked out successfully.";
         private string noSuccessString = "Sorry, there was an error. Please try again.";
 
+        public static List<Book> books;
+
         // Private method that populates the columns of booksListView
         private void populateListView()
         {
@@ -37,9 +39,11 @@ namespace LibraryViews
             idTextBox.Text = "";
         }
 
-        public CheckoutBookView()
+        public CheckoutBookView(List<Book> b)
         {
             InitializeComponent();
+
+            books = b;
 
             // Populate the list view columns
             populateListView();
@@ -47,7 +51,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView);
+                BooksController.PopulateMainBooksViewList(booksListView, books);
             }
             else
             {
@@ -66,14 +70,15 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            BooksController.SaveBooks(books);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             CheckoutBookView.ActiveForm.Close();
-            BooksView books = new BooksView();
-            books.Show();
+            BooksView booksView = new BooksView(books);
+            booksView.Show();
         }
 
         private void checkoutBookButton_Click(object sender, EventArgs e)
@@ -95,7 +100,7 @@ namespace LibraryViews
                     booksListView.Clear();
 
                     populateListView();
-                    BooksController.PopulateMainBooksViewList(booksListView);
+                    BooksController.PopulateMainBooksViewList(booksListView, books);
                     customerComboBox.SelectedIndex = -1;
                 }
                 else

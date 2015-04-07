@@ -15,8 +15,12 @@ namespace LibraryViews
 {
     public partial class BooksView : Form
     {
-        public BooksView()
+        public static List<Book> books;
+
+        public BooksView(List<Book> booksFromFile)
         {
+            books = booksFromFile;
+
             // Populate the list view with Book objects
             InitializeComponent();
             booksListView.View = View.Details;
@@ -32,7 +36,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView);
+                BooksController.PopulateMainBooksViewList(booksListView, books);
             }
             else
             {
@@ -42,25 +46,27 @@ namespace LibraryViews
 
         private void addBookButton_Click(object sender, EventArgs e)
         {
-            AddBookView addBooks = new AddBookView();
+            AddBookView addBooks = new AddBookView(books);
             BooksView.ActiveForm.Hide();
             addBooks.Show();
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            EditBookView editBook = new EditBookView();
+            EditBookView editBook = new EditBookView(books);
             BooksView.ActiveForm.Hide();
             editBook.Show();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            BooksController.SaveBooks(books);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            BooksController.SaveBooks(books);
             BooksView.ActiveForm.Close();
             Main main = new Main();
             main.Show();
@@ -68,7 +74,7 @@ namespace LibraryViews
 
         private void checkoutButton_Click(object sender, EventArgs e)
         {
-            CheckoutBookView checkoutBook = new CheckoutBookView();
+            CheckoutBookView checkoutBook = new CheckoutBookView(books);
             BooksView.ActiveForm.Hide();
             checkoutBook.Show();
 
@@ -76,7 +82,7 @@ namespace LibraryViews
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CheckInBookView checkInBook = new CheckInBookView();
+            CheckInBookView checkInBook = new CheckInBookView(books);
             BooksView.ActiveForm.Hide();
             checkInBook.Show();
         }

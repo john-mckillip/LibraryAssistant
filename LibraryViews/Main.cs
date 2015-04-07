@@ -19,13 +19,12 @@ namespace LibraryViews
         public Main()
         {
             InitializeComponent();
-          
             booksFromFile = BooksController.GetBooksList();
         }
 
         private void booksButton_Click(object sender, EventArgs e)
         {
-            BooksView books = new BooksView();
+            BooksView books = new BooksView(booksFromFile);
             Main.ActiveForm.Hide();
             books.Show();
         }

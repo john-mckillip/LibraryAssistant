@@ -18,9 +18,12 @@ namespace LibraryViews
         private string successString = "The book was successfully added to inventory.";
         private string noSuccessString = "Sorry, there was an error adding book to inventory.";
 
-        public AddBookView()
+        public static List<Book> books;
+
+        public AddBookView(List<Book> b)
         {
             InitializeComponent();
+            books = b;
         }
 
         private void addBookButton_Click(object sender, EventArgs e)
@@ -60,7 +63,9 @@ namespace LibraryViews
 
                 if (File.Exists("books.txt"))
                 {
-                    success = BooksController.AddBookToExistingList(book);
+                    //success = BooksController.AddBookToExistingList(book);
+                    books.Add(book);
+                    success = true;
                 }
                 else
                 {
@@ -84,14 +89,15 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            BooksController.SaveBooks(books);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            BooksView books = new BooksView();
             AddBookView.ActiveForm.Close();
-            books.Show();
+            BooksView booksView = new BooksView(books);
+            booksView.Show();
         }
     }
 }
