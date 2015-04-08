@@ -85,25 +85,6 @@ namespace LibraryViews.Controllers
             serializer.SerializeObject("books.txt", newSerializedBooks);
         }
 
-        //public static bool AddBookToExistingList(Book b) 
-        //{
-        //    bool success = false;
-        //    BookSerializer serializer = new BookSerializer();
-        //    BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
-        //    serializedBooks = serializer.DeSerializeObject("books.txt");
-
-        //    List<Book> booksFromFile = new List<Book>();
-        //    booksFromFile = serializedBooks.Books;
-        //    booksFromFile.Add(b);
-
-        //    BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-        //    newSerializedBooks.Books = booksFromFile;
-        //    serializer.SerializeObject("books.txt", newSerializedBooks);
-        //    success = true;
-
-        //    return success;  
-        //}
-
         public static bool AddBookToNewList(Book b)
         {
             bool success = false;
@@ -142,7 +123,7 @@ namespace LibraryViews.Controllers
 
         public static List<Book> DeleteBook(int i, List<Book> books)
         {
-            bool success = false;
+            //bool success = false;
             int id = i;
             int counter = 0;
 
@@ -156,7 +137,7 @@ namespace LibraryViews.Controllers
                 counter++;
             }
 
-            success = true;
+            //success = true;
 
             return books;
         }

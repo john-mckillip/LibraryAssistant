@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,11 @@ namespace LibraryViews
         public Main()
         {
             InitializeComponent();
-            booksFromFile = BooksController.GetBooksList();
+
+            if (File.Exists("books.txt"))
+            {
+                booksFromFile = BooksController.GetBooksList();
+            }           
         }
 
         private void booksButton_Click(object sender, EventArgs e)

@@ -58,32 +58,15 @@ namespace LibraryViews
             }
             else // All fields have data, so continue.
             {
-                bool success = false;
-                Book book = new Book(title, author, publisher, isbn);
-
-                if (File.Exists("books.txt"))
-                {
-                    //success = BooksController.AddBookToExistingList(book);
-                    books.Add(book);
-                    success = true;
-                }
-                else
-                {
-                    success = BooksController.AddBookToNewList(book);
-                }
-                // Let the user know if the book was added successfully or not.
-                if (success)
-                {
-                    MessageBox.Show(successString);
-                    titleTextBox.Text = "";
-                    authorTextBox.Text = "";
-                    publisherTextBox.Text = "";
-                    isbnTextBox.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show(noSuccessString);
-                }
+                Book book = new Book(title, author, publisher, isbn);             
+                books.Add(book);
+                                
+                // Let the user know the book was added successfully. 
+                MessageBox.Show(successString);
+                titleTextBox.Text = "";
+                authorTextBox.Text = "";
+                publisherTextBox.Text = "";
+                isbnTextBox.Text = "";                               
             } 
         }
 
