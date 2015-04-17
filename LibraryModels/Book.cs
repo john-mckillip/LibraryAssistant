@@ -30,6 +30,7 @@ namespace LibraryModels
         }
 
         public Book(int i, string t, string a, string p, string iNum)
+            : base(t)
         {
             this.Id = i;
             this.Title = t;

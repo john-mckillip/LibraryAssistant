@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="Cd.cs" />
+    <Compile Include="Dvd.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="Util\BookObjectToSerialize.cs" />
     <Compile Include="Customer.cs" />

@@ -14,10 +14,8 @@ namespace LibraryModels
         private int id;
         private string title;
 
-        public Media()
-        {
-
-        }
+        // Zero args constructor
+        public Media(){ }
         
         public Media(string t)
         {
