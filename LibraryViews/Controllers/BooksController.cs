@@ -10,29 +10,33 @@ namespace LibraryViews.Controllers
 {
     public class BooksController
     {
-        public static ListView PopulateMainBooksViewList(ListView l, List<Book> books)
+        public static ListView PopulateMainBooksViewList(ListView l, List<Media> mediaItems)
         {
-            List<Book> booksFromFile = books;
+            List<Media> booksFromFile = mediaItems;
 
-            foreach (Book b in booksFromFile)
+            foreach (Media b in booksFromFile)
             {
-                ListViewItem itm;
-                string[] bk = new String[4];
+                if (b is Book)
+                {
+                    Book itemAsBook = (Book)b;
+                    ListViewItem itm;
+                    string[] bk = new String[4];
 
-                bk[0] = b.GetId().ToString();
-                bk[1] = b.GetTitle();
-                bk[2] = b.GetAuthor();
-                // Is it in stock?
-                if (b.IsCheckedOut())
-                {
-                    bk[3] = "Out of Stock";
+                    bk[0] = itemAsBook.Id.ToString();
+                    bk[1] = itemAsBook.Title;
+                    bk[2] = itemAsBook.GetAuthor();
+                    // Is it in stock?
+                    if (itemAsBook.IsCheckedOut())
+                    {
+                        bk[3] = "Out of Stock";
+                    }
+                    else
+                    {
+                        bk[3] = "In Stock";
+                    }
+                    itm = new ListViewItem(bk);
+                    l.Items.Add(itm);
                 }
-                else
-                {
-                    bk[3] = "In Stock";
-                }
-                itm = new ListViewItem(bk);
-                l.Items.Add(itm);
             }
             return l;
         }
@@ -53,8 +57,8 @@ namespace LibraryViews.Controllers
                     ListViewItem itm;
                     string[] bk = new String[4];
 
-                    bk[0] = b.GetId().ToString();
-                    bk[1] = b.GetTitle();
+                    bk[0] = b.Id.ToString();
+                    bk[1] = b.Title;
                     bk[2] = b.GetAuthor();
                     bk[3] = "Out of Stock";
 
@@ -77,8 +81,16 @@ namespace LibraryViews.Controllers
             return booksFromFile;
         }
 
-        public static void SaveBooks(List<Book> newBooksList)
+        public static void SaveBooks(List<Media> mediaList)
         {
+            List<Book> newBooksList = new List<Book>();
+            foreach (Media item in mediaList)
+            {
+                if (item is Book)
+                {
+                    newBooksList.Add((Book)item);
+                }
+            }
             BookSerializer serializer = new BookSerializer();
             BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
             newSerializedBooks.Books = newBooksList;
@@ -112,7 +124,7 @@ namespace LibraryViews.Controllers
 
             foreach (Book b in booksFromFile)
             {
-                if (b.GetId() == id)
+                if (b.Id == id)
                 {
                     break;
                 }
@@ -121,15 +133,15 @@ namespace LibraryViews.Controllers
             return booksFromFile[index];
         }
 
-        public static List<Book> DeleteBook(int i, List<Book> books)
+        public static List<Media> DeleteBook(int i, List<Media> books)
         {
             //bool success = false;
             int id = i;
             int counter = 0;
 
-            foreach (Book b in books)
+            foreach (Media b in books)
             {
-                if (b.GetId() == i)
+                if (b.Id == i)
                 {
                     books.RemoveAt(counter);
                     break;
@@ -156,7 +168,7 @@ namespace LibraryViews.Controllers
 
                 foreach (Book b in books)
                 {
-                    if (b.GetId() == i)
+                    if (b.Id == i)
                     {
                         books.RemoveAt(counter);
                         books.Insert(counter, updatedBook);
@@ -198,7 +210,7 @@ namespace LibraryViews.Controllers
 
                     foreach (Book b in books)
                     {
-                        if (b.GetId() == i)
+                        if (b.Id == i)
                         {
                             books.RemoveAt(counter);
                             books.Insert(counter, book);
@@ -240,7 +252,7 @@ namespace LibraryViews.Controllers
 
                     foreach (Book b in books)
                     {
-                        if (b.GetId() == i)
+                        if (b.Id == i)
                         {
                             books.RemoveAt(counter);
                             books.Insert(counter, book);

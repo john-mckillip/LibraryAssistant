@@ -18,7 +18,7 @@ namespace LibraryViews
         private string successString = "The book was checked in successfully.";
         private string noSuccessString = "Sorry, there was an error. Please try again.";
 
-        public static List<Book> books;
+        public static List<Media> books;
 
         // Private method that populates the columns of booksListView
         private void populateListView()
@@ -39,7 +39,7 @@ namespace LibraryViews
             idTextBox.Text = "";
         }
 
-        public CheckInBookView(List<Book> booksFromFile)
+        public CheckInBookView(List<Media> booksFromFile)
         {
             InitializeComponent();
 

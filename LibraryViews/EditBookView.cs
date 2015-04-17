@@ -22,7 +22,7 @@ namespace LibraryViews
         private string deleteSuccessString = "The book was successfully deleted.";
         private string deleteNoSuccessString = "Sorry, there was an error deleting the book. Please try again.";
 
-        public static List<Book> books;
+        public static List<Media> books;
         
         // Private method that populates the columns of booksListView
         private void populateListView()
@@ -47,10 +47,10 @@ namespace LibraryViews
             isbnTextBox.Text = "";
         }
 
-        public EditBookView(List<Book> booksFromFile)
+        public EditBookView(List<Media> b)
         {
             InitializeComponent();
-            books = booksFromFile;
+            books = b;
 
             // Populate the list view columns
             populateListView();
@@ -87,7 +87,7 @@ namespace LibraryViews
                 int bookId = Convert.ToInt32(idTextBox.Text);
                 Book b = BooksController.GetBook(bookId);
 
-                titleTextBox.Text = b.GetTitle();
+                titleTextBox.Text = b.Title;
                 authorTextBox.Text = b.GetAuthor();
                 publisherTextBox.Text = b.GetPublisher();
                 isbnTextBox.Text = b.GetIsbn();

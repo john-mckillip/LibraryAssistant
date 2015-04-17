@@ -28,6 +28,7 @@ namespace LibraryModels
             set { title = value; }
         }
 
+      
         public int Id
         {
             get { return id; }
@@ -36,11 +37,11 @@ namespace LibraryModels
 
         public int AssignId()
         {
-            StreamReader sr = new StreamReader("book-id.txt");
+            StreamReader sr = new StreamReader("media-id.txt");
             string line = sr.ReadLine();
             sr.Close();
             int iNum = Convert.ToInt32(line) + 1;
-            System.IO.File.WriteAllText("book-id.txt", iNum.ToString());
+            System.IO.File.WriteAllText("media-id.txt", iNum.ToString());
             return iNum;
         }
         

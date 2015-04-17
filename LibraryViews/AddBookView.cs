@@ -18,9 +18,9 @@ namespace LibraryViews
         private string successString = "The book was successfully added to inventory.";
         private string noSuccessString = "Sorry, there was an error adding book to inventory.";
 
-        public static List<Book> books;
+        public static List<Media> books;
 
-        public AddBookView(List<Book> b)
+        public AddBookView(List<Media> b)
         {
             InitializeComponent();
             books = b;
