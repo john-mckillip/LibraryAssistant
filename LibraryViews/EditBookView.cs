@@ -88,9 +88,9 @@ namespace LibraryViews
                 Book b = BooksController.GetBook(bookId);
 
                 titleTextBox.Text = b.Title;
-                authorTextBox.Text = b.GetAuthor();
-                publisherTextBox.Text = b.GetPublisher();
-                isbnTextBox.Text = b.GetIsbn();
+                authorTextBox.Text = b.Author;
+                publisherTextBox.Text = b.Publisher;
+                isbnTextBox.Text = b.ISBN;
             }
 
             catch

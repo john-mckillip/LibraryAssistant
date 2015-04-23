@@ -16,7 +16,7 @@ namespace LibraryViews
     public partial class AddBookView : Form
     {
         private string successString = "The book was successfully added to inventory.";
-        private string noSuccessString = "Sorry, there was an error adding book to inventory.";
+       // private string noSuccessString = "Sorry, there was an error adding book to inventory.";
 
         public static List<Media> books;
 

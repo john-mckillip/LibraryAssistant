@@ -24,7 +24,7 @@ namespace LibraryViews.Controllers
 
                     bk[0] = itemAsBook.Id.ToString();
                     bk[1] = itemAsBook.Title;
-                    bk[2] = itemAsBook.GetAuthor();
+                    bk[2] = itemAsBook.Author;
                     // Is it in stock?
                     if (itemAsBook.IsCheckedOut())
                     {
@@ -59,7 +59,7 @@ namespace LibraryViews.Controllers
 
                     bk[0] = b.Id.ToString();
                     bk[1] = b.Title;
-                    bk[2] = b.GetAuthor();
+                    bk[2] = b.Author;
                     bk[3] = "Out of Stock";
 
                     itm = new ListViewItem(bk);

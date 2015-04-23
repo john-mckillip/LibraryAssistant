@@ -27,54 +27,22 @@ namespace LibraryModels
             this.isCheckedOut = false;
         }
 
-        public int GetId()
+        public string Developer
         {
-            return this.Id;
+            get { return developer; }
+            set { developer = value; }
         }
 
-        public void SetId(int i)
+        public string Publisher
         {
-            this.Id = i;
+            get { return publisher; }
+            set { publisher = value; }
         }
 
-        public string GetTitle()
+        public string Platform
         {
-            return this.Title;
-        }
-
-        public void SetTitle(string t)
-        {
-            this.Title = t;
-        }
-
-        public string GetDeveloper()
-        {
-            return this.developer;
-        }
-
-        public void SetDeveloper(string d)
-        {
-            this.developer = d;
-        }
-
-        public string GetPublisher()
-        {
-            return this.publisher;
-        }
-
-        public void SetPublisher(string p)
-        {
-            this.publisher = p;
-        }
-
-        public string GetPlatform()
-        {
-            return this.platform;
-        }
-
-        public void SetPlatform(string p)
-        {
-            this.platform = p;
+            get { return platform; }
+            set { platform = value; }
         }
 
         public void CheckOut()

@@ -40,54 +40,22 @@ namespace LibraryModels
             this.isCheckedOut = false;
         }
 
-        //public int GetId()
-        //{
-        //    return this.Id;
-        //}
-
-        //public void SetId(int i)
-        //{
-        //    this.Id = i;
-        //}
-
-        //public string GetTitle()
-        //{
-        //    return this.Title;
-        //}
-
-        //public void SetTitle(string t)
-        //{
-        //    this.Title = t;
-        //}
-
-        public string GetAuthor()
+        public string Author
         {
-            return this.author;
+            get { return author; }
+            set { author = value; }
         }
 
-        public void SetAuthor(string a)
+        public string Publisher
         {
-            this.author = a;
+            get { return publisher; }
+            set { publisher = value; }
         }
 
-        public string GetPublisher()
+        public string ISBN
         {
-            return this.publisher;
-        }
-
-        public void SetPublisher(string p)
-        {
-            this.publisher = p;
-        }
-
-        public string GetIsbn()
-        {
-            return this.isbnNum;
-        }
-
-        public void SetIsbn(string i)
-        {
-            this.isbnNum = i;
+            get { return isbnNum; }
+            set { isbnNum = value; }
         }
 
         public void CheckOut()

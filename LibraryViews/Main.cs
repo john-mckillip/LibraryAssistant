@@ -27,14 +27,14 @@ namespace LibraryViews
             {
                 booksFromFile = BooksController.GetBooksList();
             }
-            MessageBox.Show(booksFromFile.Count().ToString());
+            //MessageBox.Show(booksFromFile.Count().ToString());
             foreach (Book b in booksFromFile)
             {
                 
                 media.Add(b);
                 count++;
             }
-            MessageBox.Show(media.Count().ToString());
+            //MessageBox.Show(media.Count().ToString());
             
             //foreach (Media m in media)
             //{
