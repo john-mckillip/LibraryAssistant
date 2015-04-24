@@ -18,7 +18,7 @@ namespace LibraryViews
         private string successString = "The book was checked out successfully.";
         private string noSuccessString = "Sorry, there was an error. Please try again.";
 
-        public static List<Media> books;
+        public static List<Media> mediaItems;
 
         // Private method that populates the columns of booksListView
         private void populateListView()
@@ -39,11 +39,11 @@ namespace LibraryViews
             idTextBox.Text = "";
         }
 
-        public CheckoutBookView(List<Media> b)
+        public CheckoutBookView(List<Media> m)
         {
             InitializeComponent();
 
-            books = b;
+            mediaItems = m;
 
             // Populate the list view columns
             populateListView();
@@ -51,7 +51,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView, books);
+                BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
             }
             else
             {
@@ -70,14 +70,14 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveBooks(books);
+            BooksController.SaveBooks(mediaItems);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             CheckoutBookView.ActiveForm.Close();
-            BooksView booksView = new BooksView(books);
+            BooksView booksView = new BooksView(mediaItems);
             booksView.Show();
         }
 
@@ -90,7 +90,21 @@ namespace LibraryViews
                 string cId = selectedItem.ToString();                              
                 string[] id = cId.Split(' ');
                 int customerId = Convert.ToInt32(id[0]);
-                bool success = BooksController.CheckoutBook(bookId);
+                foreach (Media b in mediaItems)
+                {
+                    if (b is Book)
+                    {
+                        Book itemAsBook = (Book)b;
+                        if (itemAsBook.Id == bookId)
+                        {
+                            if (!itemAsBook.IsCheckedOut())
+                            {
+                                itemAsBook.CheckOut();
+                            }
+                        }
+                    }
+                }
+                bool success = true; //BooksController.CheckoutBook(bookId);
 
                 if (success)
                 {
@@ -100,7 +114,7 @@ namespace LibraryViews
                     booksListView.Clear();
 
                     populateListView();
-                    BooksController.PopulateMainBooksViewList(booksListView, books);
+                    BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
                     customerComboBox.SelectedIndex = -1;
                 }
                 else

@@ -22,7 +22,7 @@ namespace LibraryViews
         private string deleteSuccessString = "The book was successfully deleted.";
         private string deleteNoSuccessString = "Sorry, there was an error deleting the book. Please try again.";
 
-        public static List<Media> books;
+        public static List<Media> mediaItems;
         
         // Private method that populates the columns of booksListView
         private void populateListView()
@@ -47,10 +47,10 @@ namespace LibraryViews
             isbnTextBox.Text = "";
         }
 
-        public EditBookView(List<Media> b)
+        public EditBookView(List<Media> m)
         {
             InitializeComponent();
-            books = b;
+            mediaItems = m;
 
             // Populate the list view columns
             populateListView();
@@ -58,7 +58,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView, books);
+                BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
             }
             else
             {
@@ -68,7 +68,7 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveBooks(books);
+            BooksController.SaveBooks(mediaItems);
             Application.Exit();
         }
 
@@ -76,7 +76,7 @@ namespace LibraryViews
         {
             
             EditBookView.ActiveForm.Close();
-            BooksView booksView = new BooksView(books);
+            BooksView booksView = new BooksView(mediaItems);
             booksView.Show();
         }
 
@@ -85,12 +85,21 @@ namespace LibraryViews
             try
             {
                 int bookId = Convert.ToInt32(idTextBox.Text);
-                Book b = BooksController.GetBook(bookId);
 
-                titleTextBox.Text = b.Title;
-                authorTextBox.Text = b.Author;
-                publisherTextBox.Text = b.Publisher;
-                isbnTextBox.Text = b.ISBN;
+                foreach (Media b in mediaItems)
+                {
+                    if (b is Book)
+                    {
+                        Book itemAsBook = (Book)b;
+                        if (itemAsBook.Id == bookId)
+                        {
+                            titleTextBox.Text = itemAsBook.Title;
+                            authorTextBox.Text = itemAsBook.Author;
+                            publisherTextBox.Text = itemAsBook.Publisher;
+                            isbnTextBox.Text = itemAsBook.ISBN;
+                        }
+                    }
+                }               
             }
 
             catch
@@ -106,10 +115,17 @@ namespace LibraryViews
                 if (idTextBox.Text != "")
                 {
                     int bookId = Convert.ToInt32(idTextBox.Text);
-                    int size = books.Count;
-                    books = BooksController.DeleteBook(bookId, books);
-
-                    if (books.Count == size - 1)
+                    int size = mediaItems.Count;
+                    foreach (Media b in mediaItems)
+                    {
+                        if (b is Book && b.Id == bookId)
+                        {
+                            mediaItems = BooksController.DeleteBook(bookId, mediaItems);
+                            break;
+                        }
+                    }
+                          
+                    if (mediaItems.Count == size - 1)
                     {
                         MessageBox.Show(deleteSuccessString);
                         ClearBookFields();
@@ -117,7 +133,7 @@ namespace LibraryViews
                         booksListView.Clear();
 
                         populateListView();
-                        BooksController.PopulateMainBooksViewList(booksListView, books);
+                        BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
                     }
                     else
                     {
@@ -164,7 +180,8 @@ namespace LibraryViews
 
                 if (empty == 0)
                 {
-                    bool success = BooksController.UpdateBook(bookId, title, author, publisher, isbn);
+                    mediaItems = BooksController.UpdateBook(bookId, title, author, publisher, isbn, mediaItems);
+                    bool success = true;
                     if (success)
                     {
                         MessageBox.Show(updateSuccessString);
@@ -173,7 +190,7 @@ namespace LibraryViews
                         booksListView.Clear();
 
                         populateListView();
-                        BooksController.PopulateMainBooksViewList(booksListView, books);
+                        BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
                     }
                 }
                 else

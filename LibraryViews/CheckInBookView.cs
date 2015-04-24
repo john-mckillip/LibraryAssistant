@@ -18,7 +18,7 @@ namespace LibraryViews
         private string successString = "The book was checked in successfully.";
         private string noSuccessString = "Sorry, there was an error. Please try again.";
 
-        public static List<Media> books;
+        public static List<Media> mediaItems;
 
         // Private method that populates the columns of booksListView
         private void populateListView()
@@ -39,11 +39,11 @@ namespace LibraryViews
             idTextBox.Text = "";
         }
 
-        public CheckInBookView(List<Media> booksFromFile)
+        public CheckInBookView(List<Media> m)
         {
             InitializeComponent();
 
-            books = booksFromFile;
+            mediaItems = m;
 
             // Populate the list view columns
             populateListView();
@@ -51,7 +51,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("books.txt"))
             {
-                BooksController.PopulateCheckInBooksViewList(booksListView);
+                BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
             }
             else
             {
@@ -61,14 +61,14 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveBooks(books);
+            BooksController.SaveBooks(mediaItems);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             EditBookView.ActiveForm.Close();
-            BooksView booksView = new BooksView(books);
+            BooksView booksView = new BooksView(mediaItems);
             booksView.Show();
         }
 
@@ -77,7 +77,23 @@ namespace LibraryViews
             if (idTextBox.Text != "")
             {
                 int bookId = Convert.ToInt32(idTextBox.Text);
-                bool success = BooksController.CheckInBook(bookId);
+
+                foreach (Media b in mediaItems)
+                {
+                    if (b is Book)
+                    {
+                        Book itemAsBook = (Book)b;
+                        if (itemAsBook.Id == bookId)
+                        {
+                            if (itemAsBook.IsCheckedOut())
+                            {
+                                itemAsBook.CheckIn();
+                            }
+                        }
+                    }
+                }
+
+                bool success = true;
 
                 if (success)
                 {
@@ -87,7 +103,7 @@ namespace LibraryViews
                     booksListView.Clear();
 
                     populateListView();
-                    BooksController.PopulateCheckInBooksViewList(booksListView);
+                    BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
                 }
                 else
                 {

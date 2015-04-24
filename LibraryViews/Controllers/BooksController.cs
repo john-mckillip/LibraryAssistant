@@ -41,34 +41,6 @@ namespace LibraryViews.Controllers
             return l;
         }
 
-        public static ListView PopulateCheckInBooksViewList(ListView l)
-        {
-            List<Book> booksFromFile = new List<Book>();
-
-            BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
-            serializedBooks = serializer.DeSerializeObject("books.txt");
-            booksFromFile = serializedBooks.Books;
-
-            foreach (Book b in booksFromFile)
-            {
-                if (b.IsCheckedOut())
-                {
-                    ListViewItem itm;
-                    string[] bk = new String[4];
-
-                    bk[0] = b.Id.ToString();
-                    bk[1] = b.Title;
-                    bk[2] = b.Author;
-                    bk[3] = "Out of Stock";
-
-                    itm = new ListViewItem(bk);
-                    l.Items.Add(itm);
-                }               
-            }
-            return l;
-        }
-
         public static List<Book> GetBooksList()
         {
             BookSerializer serializer = new BookSerializer();
@@ -112,27 +84,6 @@ namespace LibraryViews.Controllers
             return success;
         }
 
-        public static Book GetBook(int id)
-        {
-            List<Book> booksFromFile = new List<Book>();
-            int index = 0;
-
-            BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
-            serializedBooks = serializer.DeSerializeObject("books.txt");
-            booksFromFile = serializedBooks.Books;
-
-            foreach (Book b in booksFromFile)
-            {
-                if (b.Id == id)
-                {
-                    break;
-                }
-                index++;
-            }
-            return booksFromFile[index];
-        }
-
         public static List<Media> DeleteBook(int i, List<Media> books)
         {
             //bool success = false;
@@ -149,132 +100,39 @@ namespace LibraryViews.Controllers
                 counter++;
             }
 
-            //success = true;
-
             return books;
         }
 
-        public static bool UpdateBook(int i, string t, string a, string p, string isb) {
+        public static List<Media> UpdateBook(int i, string t, string a, string p, string isb, List<Media> m) 
+        {
 
-            bool success = false;
             int id = i;
             int counter = 0;
 
             try
             {
                 Book updatedBook = new Book(i,t, a, p, isb);
-                List<Book> books = new List<Book>();
-                books = GetBooksList();
+                List<Media> media = new List<Media>();
+                media = m;
 
-                foreach (Book b in books)
+                foreach (Media b in media)
                 {
                     if (b.Id == i)
                     {
-                        books.RemoveAt(counter);
-                        books.Insert(counter, updatedBook);
+                        media.RemoveAt(counter);
+                        media.Insert(counter, updatedBook);
                         break;
                     }
                     counter++;
                 }
 
-                BookSerializer serializer = new BookSerializer();
-                BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-                newSerializedBooks.Books = books;
-                serializer.SerializeObject("books.txt", newSerializedBooks);
-                success = true;
-
-                return success;
+                return media;
             }
 
             catch
             {
-                success = false;
-                return success;
+                return m;
             } 
-        }
-
-        public static bool CheckoutBook(int i)
-        {
-            bool success = false;
-            int counter = 0;
-
-            try
-            {
-                Book book = GetBook(i);
-                if (!book.IsCheckedOut())
-                {
-                    book.CheckOut();
-
-                    List<Book> books = new List<Book>();
-                    books = GetBooksList();
-
-                    foreach (Book b in books)
-                    {
-                        if (b.Id == i)
-                        {
-                            books.RemoveAt(counter);
-                            books.Insert(counter, book);
-                            break;
-                        }
-                        counter++;
-                    }
-
-                    BookSerializer serializer = new BookSerializer();
-                    BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-                    newSerializedBooks.Books = books;
-                    serializer.SerializeObject("books.txt", newSerializedBooks);
-                    success = true;
-                }
-
-                return success;
-            }
-            catch
-            {
-                success = false;
-                return success;
-            }   
-        }
-
-        public static bool CheckInBook(int i)
-        {
-            bool success = false;
-            int counter = 0;
-
-            try
-            {
-                Book book = GetBook(i);
-                if (book.IsCheckedOut())
-                {
-                    book.CheckIn();
-
-                    List<Book> books = new List<Book>();
-                    books = GetBooksList();
-
-                    foreach (Book b in books)
-                    {
-                        if (b.Id == i)
-                        {
-                            books.RemoveAt(counter);
-                            books.Insert(counter, book);
-                            break;
-                        }
-                        counter++;
-                    }
-
-                    BookSerializer serializer = new BookSerializer();
-                    BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-                    newSerializedBooks.Books = books;
-                    serializer.SerializeObject("books.txt", newSerializedBooks);
-                    success = true;
-                }
-
-                return success;
-            }
-            catch
-            {
-                success = false;
-                return success;
-            }
         }
     }
 }
