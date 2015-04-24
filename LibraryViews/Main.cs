@@ -26,17 +26,6 @@ namespace LibraryViews
             {
                 media = BooksController.GetBooksList();
             }
-            //MessageBox.Show(booksFromFile.Count().ToString());
-            
-            //MessageBox.Show(media.Count().ToString());
-            
-            //foreach (Media m in media)
-            //{
-            //    if (m.GetType().ToString() == "Book")
-            //    {
-
-            //    }
-            //}
         }
 
         private void booksButton_Click(object sender, EventArgs e)
