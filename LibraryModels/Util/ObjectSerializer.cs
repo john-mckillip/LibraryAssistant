@@ -9,13 +9,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LibraryModels
 {
-    public class BookSerializer
+    public class ObjectSerializer
     {
-        public BookSerializer()
+        public ObjectSerializer()
         {
         }
 
-        public void SerializeObject(string filename, BookObjectToSerialize objectToSerialize)
+        public void SerializeObject(string filename, ObjectToSerialize objectToSerialize)
         {
             Stream stream = File.Open(filename, FileMode.Create);
             BinaryFormatter bFormatter = new BinaryFormatter();
@@ -23,12 +23,12 @@ namespace LibraryModels
             stream.Close();
         }
 
-        public BookObjectToSerialize DeSerializeObject(string filename)
+        public ObjectToSerialize DeSerializeObject(string filename)
         {
-            BookObjectToSerialize objectToSerialize;
+            ObjectToSerialize objectToSerialize;
             Stream stream = File.Open(filename, FileMode.Open);
             BinaryFormatter bFormatter = new BinaryFormatter();
-            objectToSerialize = (BookObjectToSerialize)bFormatter.Deserialize(stream);
+            objectToSerialize = (ObjectToSerialize)bFormatter.Deserialize(stream);
             stream.Close();
             return objectToSerialize;
         }

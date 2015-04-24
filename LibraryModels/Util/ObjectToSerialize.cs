@@ -9,29 +9,29 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace LibraryModels
 {
     [Serializable()]
-    public class BookObjectToSerialize : ISerializable
+    public class ObjectToSerialize : ISerializable
     {
-        private List<Book> books;
+        private List<Media> media;
 
-        public List<Book> Books
+        public List<Media> Media
         {
-            get { return this.books; }
-            set { this.books = value; }
+            get { return this.media; }
+            set { this.media = value; }
         }
 
         // Zero argument constructor
-        public BookObjectToSerialize()
+        public ObjectToSerialize()
         {
         }
 
-        public BookObjectToSerialize(SerializationInfo info, StreamingContext ctxt)
+        public ObjectToSerialize(SerializationInfo info, StreamingContext ctxt)
         {
-            this.books = (List<Book>)info.GetValue("Books", typeof(List<Book>));
+            this.media = (List<Media>)info.GetValue("Books", typeof(List<Media>));
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
-            info.AddValue("Books", this.books);
+            info.AddValue("Books", this.media);
         }
     }
 }

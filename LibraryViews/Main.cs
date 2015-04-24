@@ -15,7 +15,6 @@ namespace LibraryViews
 {
     public partial class Main : Form
     {
-        public static List<Book> booksFromFile = new List<Book>();
         public static List<Media> media = new List<Media>();
         public int count = 0;
 
@@ -25,15 +24,10 @@ namespace LibraryViews
             media.Clear();
             if (File.Exists("books.txt"))
             {
-                booksFromFile = BooksController.GetBooksList();
+                media = BooksController.GetBooksList();
             }
             //MessageBox.Show(booksFromFile.Count().ToString());
-            foreach (Book b in booksFromFile)
-            {
-                
-                media.Add(b);
-                count++;
-            }
+            
             //MessageBox.Show(media.Count().ToString());
             
             //foreach (Media m in media)

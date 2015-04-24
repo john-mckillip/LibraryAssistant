@@ -41,21 +41,21 @@ namespace LibraryViews.Controllers
             return l;
         }
 
-        public static List<Book> GetBooksList()
+        public static List<Media> GetBooksList()
         {
-            BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize serializedBooks = new BookObjectToSerialize();
+            ObjectSerializer serializer = new ObjectSerializer();
+            ObjectToSerialize serializedBooks = new ObjectToSerialize();
             serializedBooks = serializer.DeSerializeObject("books.txt");
 
-            List<Book> booksFromFile = new List<Book>();
-            booksFromFile = serializedBooks.Books;
+            List<Media> booksFromFile = new List<Media>();
+            booksFromFile = serializedBooks.Media;
 
             return booksFromFile;
         }
 
         public static void SaveBooks(List<Media> mediaList)
         {
-            List<Book> newBooksList = new List<Book>();
+            List<Media> newBooksList = new List<Media>();
             foreach (Media item in mediaList)
             {
                 if (item is Book)
@@ -63,21 +63,21 @@ namespace LibraryViews.Controllers
                     newBooksList.Add((Book)item);
                 }
             }
-            BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize newSerializedBooks = new BookObjectToSerialize();
-            newSerializedBooks.Books = newBooksList;
+            ObjectSerializer serializer = new ObjectSerializer();
+            ObjectToSerialize newSerializedBooks = new ObjectToSerialize();
+            newSerializedBooks.Media = newBooksList;
             serializer.SerializeObject("books.txt", newSerializedBooks);
         }
 
         public static bool AddBookToNewList(Book b)
         {
             bool success = false;
-            List<Book> booksNew = new List<Book>();
+            List<Media> booksNew = new List<Media>();
             booksNew.Add(b);
 
-            BookSerializer serializer = new BookSerializer();
-            BookObjectToSerialize serializeBook = new BookObjectToSerialize();
-            serializeBook.Books = booksNew;
+            ObjectSerializer serializer = new ObjectSerializer();
+            ObjectToSerialize serializeBook = new ObjectToSerialize();
+            serializeBook.Media = booksNew;
             serializer.SerializeObject("books.txt", serializeBook);
             success = true;
 

@@ -44,12 +44,12 @@
     <Compile Include="Dvd.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Media.cs" />
-    <Compile Include="Util\BookObjectToSerialize.cs" />
+    <Compile Include="Util\ObjectToSerialize.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Util\CustomerObjectToSerialize.cs" />
     <Compile Include="Util\CustomerSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\BookSerializer.cs" />
+    <Compile Include="Util\ObjectSerializer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
