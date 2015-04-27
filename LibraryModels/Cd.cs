@@ -27,6 +27,17 @@ namespace LibraryModels
             this.isCheckedOut = false;
         }
 
+        public Cd(int i, string t, string pf, string pd, string pb)
+            : base(t)
+        {
+            this.Id = i;
+            this.Title = t;
+            this.performer = pf;
+            this.producer = pd;
+            this.publisher = pb;
+            this.isCheckedOut = false;
+        }
+
         public string Performer
         {
             get { return performer; }

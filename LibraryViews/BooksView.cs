@@ -60,13 +60,13 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveBooks(mediaItems);
+            BooksController.SaveMedia(mediaItems);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveBooks(mediaItems);
+            BooksController.SaveMedia(mediaItems);
             BooksView.ActiveForm.Close();
             Main main = new Main();
             main.Show();

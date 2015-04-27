@@ -23,7 +23,7 @@ namespace LibraryViews
             media.Clear();
             if (File.Exists("media.txt"))
             {
-                media = BooksController.GetBooksList();
+                media = BooksController.GetMediaList();
             }
         }
 

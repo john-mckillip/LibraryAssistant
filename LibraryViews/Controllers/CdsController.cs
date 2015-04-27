@@ -1,32 +1,32 @@
-﻿using System;
+﻿using LibraryModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryModels;
 
 namespace LibraryViews.Controllers
 {
-    public class BooksController
+    class CdsController
     {
-        public static ListView PopulateMainBooksViewList(ListView l, List<Media> mediaItems)
+        public static ListView PopulateMainCdsViewList(ListView l, List<Media> mediaItems)
         {
             List<Media> mediaFromFile = mediaItems;
 
-            foreach (Media b in mediaFromFile)
+            foreach (Media c in mediaFromFile)
             {
-                if (b is Book)
+                if (c is Cd)
                 {
-                    Book itemAsBook = (Book)b;
+                    Cd itemAsCd = (Cd)c;
                     ListViewItem itm;
                     string[] bk = new String[4];
 
-                    bk[0] = itemAsBook.Id.ToString();
-                    bk[1] = itemAsBook.Title;
-                    bk[2] = itemAsBook.Author;
+                    bk[0] = itemAsCd.Id.ToString();
+                    bk[1] = itemAsCd.Title;
+                    bk[2] = itemAsCd.Performer;
                     // Is it in stock?
-                    if (itemAsBook.IsCheckedOut())
+                    if (itemAsCd.IsCheckedOut())
                     {
                         bk[3] = "Out of Stock";
                     }
@@ -56,18 +56,24 @@ namespace LibraryViews.Controllers
         public static void SaveMedia(List<Media> mediaList)
         {
             List<Media> newMediaList = mediaList;
-            
+            //foreach (Media item in mediaList)
+            //{
+            //    if (item is Book)
+            //    {
+            //        newMediaList.Add((Cd)item);
+            //    }
+            //}
             ObjectSerializer serializer = new ObjectSerializer();
             ObjectToSerialize newSerializedMedia = new ObjectToSerialize();
             newSerializedMedia.Media = newMediaList;
             serializer.SerializeObject("media.txt", newSerializedMedia);
         }
 
-        public static bool AddBookToNewList(Book b)
+        public static bool AddCdToNewList(Cd c)
         {
             bool success = false;
             List<Media> mediaNew = new List<Media>();
-            mediaNew.Add(b);
+            mediaNew.Add(c);
 
             ObjectSerializer serializer = new ObjectSerializer();
             ObjectToSerialize serializeMedia = new ObjectToSerialize();
@@ -78,26 +84,26 @@ namespace LibraryViews.Controllers
             return success;
         }
 
-        public static List<Media> DeleteBook(int i, List<Media> books)
+        public static List<Media> DeleteCd(int i, List<Media> media)
         {
             //bool success = false;
             int id = i;
             int counter = 0;
 
-            foreach (Media b in books)
+            foreach (Media c in media)
             {
-                if (b.Id == i)
+                if (c.Id == i)
                 {
-                    books.RemoveAt(counter);
+                    media.RemoveAt(counter);
                     break;
                 }
                 counter++;
             }
 
-            return books;
+            return media;
         }
 
-        public static List<Media> UpdateBook(int i, string t, string a, string p, string isb, List<Media> m) 
+        public static List<Media> UpdateCd(int i, string t, string pf, string pd, string pb, List<Media> m)
         {
 
             int id = i;
@@ -105,16 +111,16 @@ namespace LibraryViews.Controllers
 
             try
             {
-                Book updatedBook = new Book(i,t, a, p, isb);
+                Cd updatedCd = new Cd(i, t, pf, pd, pb);
                 List<Media> media = new List<Media>();
                 media = m;
 
-                foreach (Media b in media)
+                foreach (Media c in media)
                 {
-                    if (b.Id == i)
+                    if (c.Id == i)
                     {
                         media.RemoveAt(counter);
-                        media.Insert(counter, updatedBook);
+                        media.Insert(counter, updatedCd);
                         break;
                     }
                     counter++;
@@ -126,7 +132,7 @@ namespace LibraryViews.Controllers
             catch
             {
                 return m;
-            } 
+            }
         }
     }
 }

@@ -27,7 +27,6 @@ namespace LibraryModels
             get { return title; }
             set { title = value; }
         }
-
       
         public int Id
         {

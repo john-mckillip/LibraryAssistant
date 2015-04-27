@@ -140,6 +140,7 @@
             this.addCdButton.TabIndex = 8;
             this.addCdButton.Text = "ADD CD";
             this.addCdButton.UseVisualStyleBackColor = false;
+            this.addCdButton.Click += new System.EventHandler(this.addCdButton_Click);
             // 
             // CdsView
             // 

@@ -1,29 +1,34 @@
 ﻿using LibraryModels;
+using LibraryViews.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryViews.Controllers;
 
 namespace LibraryViews
 {
-    public partial class AddBookView : Form
+    public partial class AddCdView : Form
     {
-        private string successString = "The book was successfully added to inventory.";
-       // private string noSuccessString = "Sorry, there was an error adding book to inventory.";
+        private string successString = "The cd was successfully added to inventory.";
+        // private string noSuccessString = "Sorry, there was an error adding book to inventory.";
 
         public static List<Media> media;
 
-        public AddBookView(List<Media> b)
+        public AddCdView(List<Media> c)
         {
             InitializeComponent();
-            media = b;
+            media = c;
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            CdsController.SaveMedia(media);
+            Application.Exit();
         }
 
         private void addBookButton_Click(object sender, EventArgs e)
@@ -34,18 +39,18 @@ namespace LibraryViews
             {
                 allFeildsFull = false;
             }
-            string author = authorTextBox.Text;
-            if (author == "")
+            string performer = performerTextBox.Text;
+            if (performer == "")
+            {
+                allFeildsFull = false;
+            }
+            string producer = producerTextBox.Text;
+            if (producer == "")
             {
                 allFeildsFull = false;
             }
             string publisher = publisherTextBox.Text;
             if (publisher == "")
-            {
-                allFeildsFull = false;
-            }
-            string isbn = isbnTextBox.Text;
-            if (isbn == "")
             {
                 allFeildsFull = false;
             }
@@ -58,29 +63,23 @@ namespace LibraryViews
             }
             else // All fields have data, so continue.
             {
-                Book book = new Book(title, author, publisher, isbn);             
-                media.Add(book);
-                                
+                Cd cd = new Cd(title, performer, producer, publisher);
+                media.Add(cd);
+
                 // Let the user know the book was added successfully. 
                 MessageBox.Show(successString);
                 titleTextBox.Text = "";
-                authorTextBox.Text = "";
+                performerTextBox.Text = "";
                 publisherTextBox.Text = "";
-                isbnTextBox.Text = "";                               
-            } 
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            BooksController.SaveMedia(media);
-            Application.Exit();
+                producerTextBox.Text = "";
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            AddBookView.ActiveForm.Close();
-            BooksView booksView = new BooksView(media);
-            booksView.Show();
+            AddCdView.ActiveForm.Close();
+            CdsView cdsView = new CdsView(media);
+            cdsView.Show();
         }
     }
 }
