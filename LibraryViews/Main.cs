@@ -16,13 +16,12 @@ namespace LibraryViews
     public partial class Main : Form
     {
         public static List<Media> media = new List<Media>();
-        public int count = 0;
 
         public Main()
         {
             InitializeComponent();
             media.Clear();
-            if (File.Exists("books.txt"))
+            if (File.Exists("media.txt"))
             {
                 media = BooksController.GetBooksList();
             }
@@ -45,6 +44,13 @@ namespace LibraryViews
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cdButton_Click(object sender, EventArgs e)
+        {
+            CdsView cds = new CdsView(media);
+            Main.ActiveForm.Hide();
+            cds.Show();
         }
     }
 }

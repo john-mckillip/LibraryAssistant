@@ -65,6 +65,12 @@
     <Compile Include="BooksView.Designer.cs">
       <DependentUpon>BooksView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CdsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CdsView.Designer.cs">
+      <DependentUpon>CdsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckInBookView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,7 @@
       <DependentUpon>CheckoutBookView.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CdsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="CustomersView.cs">
       <SubType>Form</SubType>
@@ -113,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BooksView.resx">
       <DependentUpon>BooksView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CdsView.resx">
+      <DependentUpon>CdsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckInBookView.resx">
       <DependentUpon>CheckInBookView.cs</DependentUpon>
@@ -166,6 +176,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\customers-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\games.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\movies.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

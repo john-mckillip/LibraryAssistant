@@ -73,9 +73,39 @@ namespace LibraryViews.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cd {
+            get {
+                object obj = ResourceManager.GetObject("cd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customers_icon {
             get {
                 object obj = ResourceManager.GetObject("customers_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap games {
+            get {
+                object obj = ResourceManager.GetObject("games", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap movies {
+            get {
+                object obj = ResourceManager.GetObject("movies", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

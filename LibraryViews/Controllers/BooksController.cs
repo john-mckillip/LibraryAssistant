@@ -45,7 +45,7 @@ namespace LibraryViews.Controllers
         {
             ObjectSerializer serializer = new ObjectSerializer();
             ObjectToSerialize serializedBooks = new ObjectToSerialize();
-            serializedBooks = serializer.DeSerializeObject("books.txt");
+            serializedBooks = serializer.DeSerializeObject("media.txt");
 
             List<Media> booksFromFile = new List<Media>();
             booksFromFile = serializedBooks.Media;
@@ -66,7 +66,7 @@ namespace LibraryViews.Controllers
             ObjectSerializer serializer = new ObjectSerializer();
             ObjectToSerialize newSerializedBooks = new ObjectToSerialize();
             newSerializedBooks.Media = newBooksList;
-            serializer.SerializeObject("books.txt", newSerializedBooks);
+            serializer.SerializeObject("media.txt", newSerializedBooks);
         }
 
         public static bool AddBookToNewList(Book b)
@@ -78,7 +78,7 @@ namespace LibraryViews.Controllers
             ObjectSerializer serializer = new ObjectSerializer();
             ObjectToSerialize serializeBook = new ObjectToSerialize();
             serializeBook.Media = booksNew;
-            serializer.SerializeObject("books.txt", serializeBook);
+            serializer.SerializeObject("media.txt", serializeBook);
             success = true;
 
             return success;

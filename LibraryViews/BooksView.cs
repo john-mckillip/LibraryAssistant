@@ -34,7 +34,7 @@ namespace LibraryViews
             booksListView.Columns.Add("Checked Out", 120);
 
             //Populate the list with the data
-            if (File.Exists("books.txt"))
+            if (File.Exists("media.txt"))
             {
                 BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
             }
