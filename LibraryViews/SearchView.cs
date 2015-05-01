@@ -1,0 +1,82 @@
+﻿using LibraryModels;
+using LibraryViews.Controllers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace LibraryViews
+{
+    public partial class SearchView : Form
+    {
+        private string noSuccessString = "The book was nowhere to be found.";
+        public static List<Media> mediaItems;
+
+        // Private method that populates the columns of booksListView
+        private void populateListView()
+        {
+            booksListView.View = View.Details;
+            booksListView.GridLines = false;
+            booksListView.FullRowSelect = true;
+
+            //Add column header
+            booksListView.Columns.Add("Id", 50);
+            booksListView.Columns.Add("Title", 200);
+            booksListView.Columns.Add("Author", 150);
+            booksListView.Columns.Add("ISBN", 110);
+            booksListView.Columns.Add("Checked Out", 120);
+        }
+
+        public SearchView(List<Media> mediaFromFile)
+        {
+            InitializeComponent();
+            mediaItems = mediaFromFile;
+            populateListView();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            MediaController.SaveMedia(mediaItems);
+            Application.Exit();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {            
+            SearchView.ActiveForm.Close();
+            BooksView booksView = new BooksView(mediaItems);
+            booksView.Show();       
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (titleTextBox.Text != "")
+            {
+                string title = titleTextBox.Text;
+
+                foreach (Media b in mediaItems)
+                {
+                   // Comparing strings not numbers Duke!
+                    MessageBox.Show(b.Title);
+                    if (b.Title == title)
+                    {
+                        MessageBox.Show("Yes!");
+                        booksListView.Clear();
+                        populateListView();
+                        MediaController.PopulateSearchViewList(booksListView, b);
+                    }
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show(noSuccessString);
+            }
+        }
+    }
+}

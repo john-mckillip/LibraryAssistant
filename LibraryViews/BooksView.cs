@@ -31,12 +31,13 @@ namespace LibraryViews
             booksListView.Columns.Add("Id", 50);
             booksListView.Columns.Add("Title", 200);
             booksListView.Columns.Add("Author", 150);
+            booksListView.Columns.Add("ISBN", 110);
             booksListView.Columns.Add("Checked Out", 120);
 
             //Populate the list with the data
             if (File.Exists("media.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
+                MediaController.PopulateMainBooksViewList(booksListView, mediaItems);
             }
             else
             {
@@ -60,13 +61,13 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveMedia(mediaItems);
+            MediaController.SaveMedia(mediaItems);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveMedia(mediaItems);
+            MediaController.SaveMedia(mediaItems);
             BooksView.ActiveForm.Close();
             Main main = new Main();
             main.Show();
@@ -85,6 +86,13 @@ namespace LibraryViews
             CheckInBookView checkInBook = new CheckInBookView(mediaItems);
             BooksView.ActiveForm.Hide();
             checkInBook.Show();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            SearchView searchView = new SearchView(mediaItems);
+            BooksView.ActiveForm.Hide();
+            searchView.Show();
         }
     }
 }

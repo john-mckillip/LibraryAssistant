@@ -35,7 +35,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("media.txt"))
             {
-                CdsController.PopulateMainCdsViewList(mediaListView, mediaItems);
+                MediaController.PopulateMainCdsViewList(mediaListView, mediaItems);
             }
             else
             {
@@ -45,13 +45,13 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            CdsController.SaveMedia(mediaItems);
+            MediaController.SaveMedia(mediaItems);
             Application.Exit();
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            CdsController.SaveMedia(mediaItems);
+            MediaController.SaveMedia(mediaItems);
             CdsView.ActiveForm.Close();
             Main main = new Main();
             main.Show();

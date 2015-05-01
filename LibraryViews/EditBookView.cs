@@ -35,6 +35,7 @@ namespace LibraryViews
             booksListView.Columns.Add("Id", 50);
             booksListView.Columns.Add("Title", 200);
             booksListView.Columns.Add("Author", 150);
+            booksListView.Columns.Add("ISBN", 110);
             booksListView.Columns.Add("Checked Out", 120);
         }
 
@@ -58,7 +59,7 @@ namespace LibraryViews
             //Populate the list with the data
             if (File.Exists("media.txt"))
             {
-                BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
+                MediaController.PopulateMainBooksViewList(booksListView, mediaItems);
             }
             else
             {
@@ -68,7 +69,7 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveMedia(mediaItems);
+            MediaController.SaveMedia(mediaItems);
             Application.Exit();
         }
 
@@ -120,7 +121,7 @@ namespace LibraryViews
                     {
                         if (b is Book && b.Id == bookId)
                         {
-                            mediaItems = BooksController.DeleteBook(bookId, mediaItems);
+                            mediaItems = MediaController.DeleteMedia(bookId, mediaItems);
                             break;
                         }
                     }
@@ -133,7 +134,7 @@ namespace LibraryViews
                         booksListView.Clear();
 
                         populateListView();
-                        BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
+                        MediaController.PopulateMainBooksViewList(booksListView, mediaItems);
                     }
                     else
                     {
@@ -180,7 +181,7 @@ namespace LibraryViews
 
                 if (empty == 0)
                 {
-                    mediaItems = BooksController.UpdateBook(bookId, title, author, publisher, isbn, mediaItems);
+                    mediaItems = MediaController.UpdateBook(bookId, title, author, publisher, isbn, mediaItems);
                     bool success = true;
                     if (success)
                     {
@@ -190,7 +191,7 @@ namespace LibraryViews
                         booksListView.Clear();
 
                         populateListView();
-                        BooksController.PopulateMainBooksViewList(booksListView, mediaItems);
+                        MediaController.PopulateMainBooksViewList(booksListView, mediaItems);
                     }
                 }
                 else

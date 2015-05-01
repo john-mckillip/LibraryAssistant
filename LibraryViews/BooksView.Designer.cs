@@ -35,6 +35,7 @@
             this.checkoutButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addBookButton
@@ -47,7 +48,7 @@
             this.addBookButton.ForeColor = System.Drawing.Color.White;
             this.addBookButton.Location = new System.Drawing.Point(25, 460);
             this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(550, 46);
+            this.addBookButton.Size = new System.Drawing.Size(634, 46);
             this.addBookButton.TabIndex = 1;
             this.addBookButton.Text = "ADD BOOK";
             this.addBookButton.UseVisualStyleBackColor = false;
@@ -60,7 +61,7 @@
             this.booksListView.ForeColor = System.Drawing.Color.Black;
             this.booksListView.Location = new System.Drawing.Point(25, 60);
             this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(550, 371);
+            this.booksListView.Size = new System.Drawing.Size(634, 371);
             this.booksListView.TabIndex = 2;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
@@ -73,7 +74,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(470, 14);
+            this.exitButton.Location = new System.Drawing.Point(554, 14);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(105, 40);
             this.exitButton.TabIndex = 3;
@@ -105,9 +106,9 @@
             this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkoutButton.Font = new System.Drawing.Font("Roboto", 12F);
             this.checkoutButton.ForeColor = System.Drawing.Color.White;
-            this.checkoutButton.Location = new System.Drawing.Point(25, 581);
+            this.checkoutButton.Location = new System.Drawing.Point(349, 641);
             this.checkoutButton.Name = "checkoutButton";
-            this.checkoutButton.Size = new System.Drawing.Size(550, 46);
+            this.checkoutButton.Size = new System.Drawing.Size(310, 46);
             this.checkoutButton.TabIndex = 5;
             this.checkoutButton.Text = "CHECK OUT BOOK";
             this.checkoutButton.UseVisualStyleBackColor = false;
@@ -123,7 +124,7 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Location = new System.Drawing.Point(25, 521);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(550, 46);
+            this.editButton.Size = new System.Drawing.Size(634, 46);
             this.editButton.TabIndex = 6;
             this.editButton.Text = "EDIT BOOK";
             this.editButton.UseVisualStyleBackColor = false;
@@ -139,17 +140,34 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(25, 641);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(550, 46);
+            this.button1.Size = new System.Drawing.Size(310, 46);
             this.button1.TabIndex = 7;
             this.button1.Text = "CHECK IN BOOK";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // searchButton
+            // 
+            this.searchButton.BackColor = System.Drawing.Color.Black;
+            this.searchButton.FlatAppearance.BorderSize = 0;
+            this.searchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Location = new System.Drawing.Point(25, 582);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(634, 46);
+            this.searchButton.TabIndex = 8;
+            this.searchButton.Text = "SEARCH";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // BooksView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 707);
+            this.ClientSize = new System.Drawing.Size(680, 741);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.checkoutButton);
@@ -172,5 +190,6 @@
         private System.Windows.Forms.Button checkoutButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button searchButton;
     }
 }

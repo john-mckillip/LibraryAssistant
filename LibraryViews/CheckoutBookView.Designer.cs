@@ -97,7 +97,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(470, 14);
+            this.exitButton.Location = new System.Drawing.Point(549, 14);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(105, 40);
             this.exitButton.TabIndex = 22;
@@ -112,7 +112,7 @@
             this.booksListView.ForeColor = System.Drawing.Color.Black;
             this.booksListView.Location = new System.Drawing.Point(25, 68);
             this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(550, 278);
+            this.booksListView.Size = new System.Drawing.Size(629, 278);
             this.booksListView.TabIndex = 21;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 546);
+            this.ClientSize = new System.Drawing.Size(680, 546);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.customerComboBox);
             this.Controls.Add(this.checkoutBookButton);

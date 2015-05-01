@@ -27,7 +27,7 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            CdsController.SaveMedia(media);
+            MediaController.SaveMedia(media);
             Application.Exit();
         }
 

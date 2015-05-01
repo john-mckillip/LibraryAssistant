@@ -70,7 +70,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(470, 14);
+            this.exitButton.Location = new System.Drawing.Point(551, 14);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(105, 40);
             this.exitButton.TabIndex = 6;
@@ -85,7 +85,7 @@
             this.booksListView.ForeColor = System.Drawing.Color.Black;
             this.booksListView.Location = new System.Drawing.Point(25, 68);
             this.booksListView.Name = "booksListView";
-            this.booksListView.Size = new System.Drawing.Size(550, 278);
+            this.booksListView.Size = new System.Drawing.Size(631, 278);
             this.booksListView.TabIndex = 5;
             this.booksListView.UseCompatibleStateImageBehavior = false;
             this.booksListView.View = System.Windows.Forms.View.Details;
@@ -136,7 +136,7 @@
             this.updateBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBookButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.updateBookButton.ForeColor = System.Drawing.Color.White;
-            this.updateBookButton.Location = new System.Drawing.Point(285, 660);
+            this.updateBookButton.Location = new System.Drawing.Point(370, 654);
             this.updateBookButton.Name = "updateBookButton";
             this.updateBookButton.Size = new System.Drawing.Size(117, 39);
             this.updateBookButton.TabIndex = 19;
@@ -148,7 +148,7 @@
             // 
             this.isbnLabel.AutoSize = true;
             this.isbnLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isbnLabel.Location = new System.Drawing.Point(282, 583);
+            this.isbnLabel.Location = new System.Drawing.Point(367, 577);
             this.isbnLabel.Name = "isbnLabel";
             this.isbnLabel.Size = new System.Drawing.Size(60, 21);
             this.isbnLabel.TabIndex = 18;
@@ -159,7 +159,7 @@
             // 
             this.publisherLabel.AutoSize = true;
             this.publisherLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherLabel.Location = new System.Drawing.Point(282, 508);
+            this.publisherLabel.Location = new System.Drawing.Point(367, 502);
             this.publisherLabel.Name = "publisherLabel";
             this.publisherLabel.Size = new System.Drawing.Size(76, 21);
             this.publisherLabel.TabIndex = 17;
@@ -170,7 +170,7 @@
             // 
             this.authorLabel.AutoSize = true;
             this.authorLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorLabel.Location = new System.Drawing.Point(285, 441);
+            this.authorLabel.Location = new System.Drawing.Point(370, 435);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(58, 21);
             this.authorLabel.TabIndex = 16;
@@ -182,7 +182,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(283, 375);
+            this.titleLabel.Location = new System.Drawing.Point(368, 369);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(41, 21);
             this.titleLabel.TabIndex = 15;
@@ -192,7 +192,7 @@
             // isbnTextBox
             // 
             this.isbnTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isbnTextBox.Location = new System.Drawing.Point(285, 609);
+            this.isbnTextBox.Location = new System.Drawing.Point(370, 603);
             this.isbnTextBox.Name = "isbnTextBox";
             this.isbnTextBox.Size = new System.Drawing.Size(290, 35);
             this.isbnTextBox.TabIndex = 14;
@@ -201,7 +201,7 @@
             // publisherTextBox
             // 
             this.publisherTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherTextBox.Location = new System.Drawing.Point(285, 533);
+            this.publisherTextBox.Location = new System.Drawing.Point(370, 527);
             this.publisherTextBox.Name = "publisherTextBox";
             this.publisherTextBox.Size = new System.Drawing.Size(290, 35);
             this.publisherTextBox.TabIndex = 13;
@@ -210,7 +210,7 @@
             // authorTextBox
             // 
             this.authorTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorTextBox.Location = new System.Drawing.Point(285, 465);
+            this.authorTextBox.Location = new System.Drawing.Point(370, 459);
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(290, 35);
             this.authorTextBox.TabIndex = 12;
@@ -219,7 +219,7 @@
             // titleTextBox
             // 
             this.titleTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(285, 399);
+            this.titleTextBox.Location = new System.Drawing.Point(370, 393);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(290, 35);
             this.titleTextBox.TabIndex = 11;
@@ -245,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 733);
+            this.ClientSize = new System.Drawing.Size(680, 733);
             this.Controls.Add(this.deleteBookButton);
             this.Controls.Add(this.updateBookButton);
             this.Controls.Add(this.isbnLabel);

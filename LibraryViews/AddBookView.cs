@@ -72,7 +72,7 @@ namespace LibraryViews
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            BooksController.SaveMedia(media);
+            MediaController.SaveMedia(media);
             Application.Exit();
         }
 
