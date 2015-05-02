@@ -55,28 +55,60 @@ namespace LibraryViews
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (titleTextBox.Text != "")
+            bool found = false;
+            if (titleTextBox.Text != "" && isbnTextBox.Text != "" && !found)
             {
-                string title = titleTextBox.Text;
 
-                foreach (Media b in mediaItems)
-                {
-                   // Comparing strings not numbers Duke!
-                    MessageBox.Show(b.Title);
-                    if (b.Title == title)
-                    {
-                        MessageBox.Show("Yes!");
-                        booksListView.Clear();
-                        populateListView();
-                        MediaController.PopulateSearchViewList(booksListView, b);
-                    }
-                }
-                
             }
             else
             {
-                MessageBox.Show(noSuccessString);
+                if (titleTextBox.Text != "")
+                {
+                    string title = titleTextBox.Text;
+
+
+                    foreach (Media b in mediaItems)
+                    {
+                        // Comparing strings not numbers Duke!s
+                        if (b.Title.Equals(title, StringComparison.OrdinalIgnoreCase))
+                        {
+                            found = true;
+                            MessageBox.Show("Found It!");
+                            booksListView.Clear();
+                            populateListView();
+                            MediaController.PopulateSearchViewList(booksListView, b);
+                        }
+                    }
+                }
+                if (isbnTextBox.Text != "" && !found)
+                {
+                    string isbn = isbnTextBox.Text;
+
+                    foreach (Media b in mediaItems)
+                    {
+                        if (b is Book)
+                        {
+                            Book itemAsBook = (Book)b;
+                            if (itemAsBook.ISBN.Equals(isbn, StringComparison.OrdinalIgnoreCase))
+                            {
+                                found = true;
+                                MessageBox.Show("Found It!");
+                                booksListView.Clear();
+                                populateListView();
+                                MediaController.PopulateSearchViewList(booksListView, b);
+                                break;
+                            }
+                        }
+                    }
+                }
+
             }
+
+            if (!found)
+            {
+                MessageBox.Show(noSuccessString);  
+            }
+            
         }
     }
 }
