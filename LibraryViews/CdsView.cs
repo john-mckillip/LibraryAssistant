@@ -63,5 +63,12 @@ namespace LibraryViews
             CdsView.ActiveForm.Hide();
             addCdView.Show();
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            EditCdView editCd = new EditCdView(mediaItems);
+            CdsView.ActiveForm.Close();
+            editCd.Show();
+        }
     }
 }

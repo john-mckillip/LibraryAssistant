@@ -35,6 +35,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.mediaListView = new System.Windows.Forms.ListView();
             this.addCdButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -47,7 +48,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(24, 641);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(550, 46);
+            this.button1.Size = new System.Drawing.Size(310, 46);
             this.button1.TabIndex = 14;
             this.button1.Text = "CHECK IN CD";
             this.button1.UseVisualStyleBackColor = false;
@@ -62,10 +63,11 @@
             this.editButton.ForeColor = System.Drawing.Color.White;
             this.editButton.Location = new System.Drawing.Point(24, 521);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(550, 46);
+            this.editButton.Size = new System.Drawing.Size(634, 46);
             this.editButton.TabIndex = 13;
             this.editButton.Text = "EDIT CD";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // checkoutButton
             // 
@@ -75,9 +77,9 @@
             this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkoutButton.Font = new System.Drawing.Font("Roboto", 12F);
             this.checkoutButton.ForeColor = System.Drawing.Color.White;
-            this.checkoutButton.Location = new System.Drawing.Point(24, 581);
+            this.checkoutButton.Location = new System.Drawing.Point(348, 641);
             this.checkoutButton.Name = "checkoutButton";
-            this.checkoutButton.Size = new System.Drawing.Size(550, 46);
+            this.checkoutButton.Size = new System.Drawing.Size(310, 46);
             this.checkoutButton.TabIndex = 12;
             this.checkoutButton.Text = "CHECK OUT CD";
             this.checkoutButton.UseVisualStyleBackColor = false;
@@ -106,7 +108,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(469, 14);
+            this.exitButton.Location = new System.Drawing.Point(553, 14);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(105, 40);
             this.exitButton.TabIndex = 10;
@@ -121,7 +123,7 @@
             this.mediaListView.ForeColor = System.Drawing.Color.Black;
             this.mediaListView.Location = new System.Drawing.Point(24, 60);
             this.mediaListView.Name = "mediaListView";
-            this.mediaListView.Size = new System.Drawing.Size(550, 371);
+            this.mediaListView.Size = new System.Drawing.Size(634, 371);
             this.mediaListView.TabIndex = 9;
             this.mediaListView.UseCompatibleStateImageBehavior = false;
             this.mediaListView.View = System.Windows.Forms.View.Details;
@@ -136,17 +138,33 @@
             this.addCdButton.ForeColor = System.Drawing.Color.White;
             this.addCdButton.Location = new System.Drawing.Point(24, 460);
             this.addCdButton.Name = "addCdButton";
-            this.addCdButton.Size = new System.Drawing.Size(550, 46);
+            this.addCdButton.Size = new System.Drawing.Size(634, 46);
             this.addCdButton.TabIndex = 8;
             this.addCdButton.Text = "ADD CD";
             this.addCdButton.UseVisualStyleBackColor = false;
             this.addCdButton.Click += new System.EventHandler(this.addCdButton_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(24, 580);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(634, 46);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "SEARCH";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // CdsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 725);
+            this.ClientSize = new System.Drawing.Size(680, 741);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.checkoutButton);
@@ -169,5 +187,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.ListView mediaListView;
         private System.Windows.Forms.Button addCdButton;
+        private System.Windows.Forms.Button button2;
     }
 }

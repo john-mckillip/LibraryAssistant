@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.isCheckedOutButton = new System.Windows.Forms.Button();
-            this.getIdLabel = new System.Windows.Forms.Label();
+            this.isbnSearchButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.booksListView = new System.Windows.Forms.ListView();
@@ -38,34 +37,23 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.isbnLabel = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
-            this.checkedOutComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // isCheckedOutButton
+            // isbnSearchButton
             // 
-            this.isCheckedOutButton.BackColor = System.Drawing.Color.Black;
-            this.isCheckedOutButton.FlatAppearance.BorderSize = 0;
-            this.isCheckedOutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.isCheckedOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.isCheckedOutButton.Font = new System.Drawing.Font("Roboto", 10F);
-            this.isCheckedOutButton.ForeColor = System.Drawing.Color.White;
-            this.isCheckedOutButton.Location = new System.Drawing.Point(23, 458);
-            this.isCheckedOutButton.Name = "isCheckedOutButton";
-            this.isCheckedOutButton.Size = new System.Drawing.Size(117, 39);
-            this.isCheckedOutButton.TabIndex = 26;
-            this.isCheckedOutButton.Text = "SEARCH";
-            this.isCheckedOutButton.UseVisualStyleBackColor = false;
-            // 
-            // getIdLabel
-            // 
-            this.getIdLabel.AutoSize = true;
-            this.getIdLabel.BackColor = System.Drawing.Color.Transparent;
-            this.getIdLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.getIdLabel.Location = new System.Drawing.Point(21, 387);
-            this.getIdLabel.Name = "getIdLabel";
-            this.getIdLabel.Size = new System.Drawing.Size(101, 21);
-            this.getIdLabel.TabIndex = 25;
-            this.getIdLabel.Text = "Checked Out";
+            this.isbnSearchButton.BackColor = System.Drawing.Color.Black;
+            this.isbnSearchButton.FlatAppearance.BorderSize = 0;
+            this.isbnSearchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.isbnSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.isbnSearchButton.Font = new System.Drawing.Font("Roboto", 10F);
+            this.isbnSearchButton.ForeColor = System.Drawing.Color.White;
+            this.isbnSearchButton.Location = new System.Drawing.Point(23, 458);
+            this.isbnSearchButton.Name = "isbnSearchButton";
+            this.isbnSearchButton.Size = new System.Drawing.Size(117, 39);
+            this.isbnSearchButton.TabIndex = 26;
+            this.isbnSearchButton.Text = "SEARCH";
+            this.isbnSearchButton.UseVisualStyleBackColor = false;
+            this.isbnSearchButton.Click += new System.EventHandler(this.isbnSearchButton_Click);
             // 
             // backButton
             // 
@@ -122,7 +110,7 @@
             // isbnTextBox
             // 
             this.isbnTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isbnTextBox.Location = new System.Drawing.Point(370, 483);
+            this.isbnTextBox.Location = new System.Drawing.Point(25, 406);
             this.isbnTextBox.Name = "isbnTextBox";
             this.isbnTextBox.Size = new System.Drawing.Size(290, 35);
             this.isbnTextBox.TabIndex = 30;
@@ -142,7 +130,7 @@
             // 
             this.isbnLabel.AutoSize = true;
             this.isbnLabel.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.isbnLabel.Location = new System.Drawing.Point(367, 457);
+            this.isbnLabel.Location = new System.Drawing.Point(22, 380);
             this.isbnLabel.Name = "isbnLabel";
             this.isbnLabel.Size = new System.Drawing.Size(60, 21);
             this.isbnLabel.TabIndex = 34;
@@ -156,7 +144,7 @@
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.Font = new System.Drawing.Font("Roboto", 10F);
             this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.Location = new System.Drawing.Point(370, 534);
+            this.searchButton.Location = new System.Drawing.Point(370, 458);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(117, 39);
             this.searchButton.TabIndex = 35;
@@ -164,29 +152,17 @@
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // checkedOutComboBox
-            // 
-            this.checkedOutComboBox.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedOutComboBox.FormattingEnabled = true;
-            this.checkedOutComboBox.IntegralHeight = false;
-            this.checkedOutComboBox.Location = new System.Drawing.Point(25, 412);
-            this.checkedOutComboBox.Name = "checkedOutComboBox";
-            this.checkedOutComboBox.Size = new System.Drawing.Size(195, 29);
-            this.checkedOutComboBox.TabIndex = 36;
-            // 
             // SearchView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 733);
-            this.Controls.Add(this.checkedOutComboBox);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.isbnLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.isbnTextBox);
             this.Controls.Add(this.titleTextBox);
-            this.Controls.Add(this.isCheckedOutButton);
-            this.Controls.Add(this.getIdLabel);
+            this.Controls.Add(this.isbnSearchButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.booksListView);
@@ -199,8 +175,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button isCheckedOutButton;
-        private System.Windows.Forms.Label getIdLabel;
+        private System.Windows.Forms.Button isbnSearchButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.ListView booksListView;
@@ -209,6 +184,5 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label isbnLabel;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.ComboBox checkedOutComboBox;
     }
 }
