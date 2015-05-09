@@ -83,6 +83,7 @@
             this.checkoutButton.TabIndex = 12;
             this.checkoutButton.Text = "CHECK OUT CD";
             this.checkoutButton.UseVisualStyleBackColor = false;
+            this.checkoutButton.Click += new System.EventHandler(this.checkoutButton_Click);
             // 
             // backButton
             // 

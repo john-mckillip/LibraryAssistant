@@ -89,6 +89,12 @@
     <Compile Include="CheckoutBookView.Designer.cs">
       <DependentUpon>CheckoutBookView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutCdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutCdView.Designer.cs">
+      <DependentUpon>CheckoutCdView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="CustomersView.cs">
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckoutBookView.resx">
       <DependentUpon>CheckoutBookView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutCdView.resx">
+      <DependentUpon>CheckoutCdView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomersView.resx">
       <DependentUpon>CustomersView.cs</DependentUpon>

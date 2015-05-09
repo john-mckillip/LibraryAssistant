@@ -70,5 +70,12 @@ namespace LibraryViews
             CdsView.ActiveForm.Close();
             editCd.Show();
         }
+
+        private void checkoutButton_Click(object sender, EventArgs e)
+        {
+            CheckoutCdView checkoutCd = new CheckoutCdView(mediaItems);
+            CdsView.ActiveForm.Close();
+            checkoutCd.Show();
+        }
     }
 }
