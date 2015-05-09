@@ -30,7 +30,7 @@ namespace LibraryViews
             customersListView.Columns.Add("Email", 190);
 
             //Populate the list with the data
-            if (File.Exists("books.txt"))
+            if (File.Exists("customers.txt"))
             {
                 CustomersController.PopulateMainCustomersViewList(customersListView);
             }

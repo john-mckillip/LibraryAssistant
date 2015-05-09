@@ -83,6 +83,12 @@
     <Compile Include="CheckInBookView.Designer.cs">
       <DependentUpon>CheckInBookView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckInCdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckInCdView.Designer.cs">
+      <DependentUpon>CheckInCdView.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckoutBookView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckInBookView.resx">
       <DependentUpon>CheckInBookView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckInCdView.resx">
+      <DependentUpon>CheckInCdView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckoutBookView.resx">
       <DependentUpon>CheckoutBookView.cs</DependentUpon>

@@ -15,7 +15,7 @@ namespace LibraryViews
 {
     public partial class CheckoutCdView : Form
     {
-        private string successString = "The book was checked out successfully.";
+        private string successString = "The cd was checked out successfully.";
         private string noSuccessString = "Sorry, there was an error. Please try again.";
 
         public static List<Media> mediaItems;
@@ -38,6 +38,7 @@ namespace LibraryViews
         {
             idTextBox.Text = "";
         }
+
         public CheckoutCdView(List<Media> m)
         {
             InitializeComponent();
