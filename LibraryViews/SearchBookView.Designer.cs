@@ -1,6 +1,6 @@
 ﻿namespace LibraryViews
 {
-    partial class SearchView
+    partial class SearchBookView
     {
         /// <summary>
         /// Required designer variable.
@@ -152,7 +152,7 @@
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // SearchView
+            // SearchBookView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,8 +166,8 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.booksListView);
-            this.Name = "SearchView";
-            this.Text = "SearchView";
+            this.Name = "SearchBookView";
+            this.Text = "Search for a Book";
             this.ResumeLayout(false);
             this.PerformLayout();
 

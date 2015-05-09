@@ -90,7 +90,7 @@ namespace LibraryViews
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            SearchView searchView = new SearchView(mediaItems);
+            SearchBookView searchView = new SearchBookView(mediaItems);
             BooksView.ActiveForm.Hide();
             searchView.Show();
         }

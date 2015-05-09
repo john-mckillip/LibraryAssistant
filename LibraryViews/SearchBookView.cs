@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace LibraryViews
 {
-    public partial class SearchView : Form
+    public partial class SearchBookView : Form
     {
         private string noSuccessString = "The book was nowhere to be found.";
         public static List<Media> mediaItems;
@@ -33,7 +33,7 @@ namespace LibraryViews
             booksListView.Columns.Add("Checked Out", 120);
         }
 
-        public SearchView(List<Media> mediaFromFile)
+        public SearchBookView(List<Media> mediaFromFile)
         {
             InitializeComponent();
             mediaItems = mediaFromFile;
@@ -48,7 +48,7 @@ namespace LibraryViews
 
         private void backButton_Click(object sender, EventArgs e)
         {            
-            SearchView.ActiveForm.Close();
+            SearchBookView.ActiveForm.Close();
             BooksView booksView = new BooksView(mediaItems);
             booksView.Show();       
         }

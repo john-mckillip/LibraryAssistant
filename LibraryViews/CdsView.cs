@@ -84,5 +84,12 @@ namespace LibraryViews
             CdsView.ActiveForm.Close();
             checkInCd.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SearchCdView searchCd = new SearchCdView(mediaItems);
+            CdsView.ActiveForm.Close();
+            searchCd.Show();
+        }
     }
 }

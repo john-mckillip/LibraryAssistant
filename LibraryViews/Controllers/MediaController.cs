@@ -108,6 +108,38 @@ namespace LibraryViews.Controllers
             }
         }
 
+        public static ListView PopulateCdSearchViewList(ListView l, Media m)
+        {
+            Media media = m;
+            if (media is Cd)
+            {
+                Cd itemAsCd = (Cd)m;
+                ListViewItem itm;
+                string[] bk = new String[4];
+
+                bk[0] = itemAsCd.Id.ToString();
+                bk[1] = itemAsCd.Title;
+                bk[2] = itemAsCd.Performer;
+                // Is it in stock?
+                if (itemAsCd.IsCheckedOut())
+                {
+                    bk[3] = "Out of Stock";
+                }
+                else
+                {
+                    bk[3] = "In Stock";
+                }
+                itm = new ListViewItem(bk);
+                l.Items.Add(itm);
+
+                return l;
+            }
+            else
+            {
+                return l;
+            }
+        }
+
         public static List<Media> GetMediaList()
         {
             ObjectSerializer serializer = new ObjectSerializer();
