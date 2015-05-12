@@ -74,6 +74,37 @@ namespace LibraryViews.Controllers
             return l;
         }
 
+        public static ListView PopulateMainDvdsViewList(ListView l, List<Media> mediaItems)
+        {
+            List<Media> mediaFromFile = mediaItems;
+
+            foreach (Media d in mediaFromFile)
+            {
+                if (d is Dvd)
+                {
+                    Dvd itemAsDvd = (Dvd)d;
+                    ListViewItem itm;
+                    string[] bk = new String[4];
+
+                    bk[0] = itemAsDvd.Id.ToString();
+                    bk[1] = itemAsDvd.Title;
+                    bk[2] = itemAsDvd.Director;
+                    // Is it in stock?
+                    if (itemAsDvd.IsCheckedOut())
+                    {
+                        bk[3] = "Out of Stock";
+                    }
+                    else
+                    {
+                        bk[3] = "In Stock";
+                    }
+                    itm = new ListViewItem(bk);
+                    l.Items.Add(itm);
+                }
+            }
+            return l;
+        }
+
         public static ListView PopulateSearchViewList(ListView l, Media m)
         {
             Media media = m;
@@ -237,6 +268,38 @@ namespace LibraryViews.Controllers
             try
             {
                 Cd updatedCd = new Cd(i, t, pf, pd, pb);
+                List<Media> media = new List<Media>();
+                media = m;
+
+                foreach (Media c in media)
+                {
+                    if (c.Id == i)
+                    {
+                        media.RemoveAt(counter);
+                        media.Insert(counter, updatedCd);
+                        break;
+                    }
+                    counter++;
+                }
+
+                return media;
+            }
+
+            catch
+            {
+                return m;
+            }
+        }
+
+        public static List<Media> UpdateDvd(int i, string t, string d, string p, string s, List<Media> m)
+        {
+
+            int id = i;
+            int counter = 0;
+
+            try
+            {
+                Cd updatedCd = new Cd(i, t, d, p, s);
                 List<Media> media = new List<Media>();
                 media = m;
 

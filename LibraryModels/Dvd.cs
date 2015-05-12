@@ -27,7 +27,7 @@ namespace LibraryModels
             this.isCheckedOut = false;
         }
 
-        public string Pirector
+        public string Director
         {
             get { return director; }
             set { director = value; }

@@ -65,6 +65,12 @@
     <Compile Include="AddCustomerView.Designer.cs">
       <DependentUpon>AddCustomerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddDvdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDvdView.Designer.cs">
+      <DependentUpon>AddDvdView.cs</DependentUpon>
+    </Compile>
     <Compile Include="BooksView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     <Compile Include="CheckInCdView.Designer.cs">
       <DependentUpon>CheckInCdView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckInDvdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckInDvdView.Designer.cs">
+      <DependentUpon>CheckInDvdView.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckoutBookView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,12 @@
     <Compile Include="CheckoutCdView.Designer.cs">
       <DependentUpon>CheckoutCdView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckOutDvdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckOutDvdView.Designer.cs">
+      <DependentUpon>CheckOutDvdView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="CustomersView.cs">
@@ -108,6 +126,12 @@
     </Compile>
     <Compile Include="CustomersView.Designer.cs">
       <DependentUpon>CustomersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DvdsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DvdsView.Designer.cs">
+      <DependentUpon>DvdsView.cs</DependentUpon>
     </Compile>
     <Compile Include="EditBookView.cs">
       <SubType>Form</SubType>
@@ -126,6 +150,12 @@
     </Compile>
     <Compile Include="EditCustomerView.Designer.cs">
       <DependentUpon>EditCustomerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditDvdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDvdView.Designer.cs">
+      <DependentUpon>EditDvdView.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -147,6 +177,12 @@
     <Compile Include="SearchCdView.Designer.cs">
       <DependentUpon>SearchCdView.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchDvdView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchDvdView.Designer.cs">
+      <DependentUpon>SearchDvdView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBookView.resx">
       <DependentUpon>AddBookView.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddCustomerView.resx">
       <DependentUpon>AddCustomerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDvdView.resx">
+      <DependentUpon>AddDvdView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BooksView.resx">
       <DependentUpon>BooksView.cs</DependentUpon>
@@ -176,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomersView.resx">
       <DependentUpon>CustomersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DvdsView.resx">
+      <DependentUpon>DvdsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditBookView.resx">
       <DependentUpon>EditBookView.cs</DependentUpon>
