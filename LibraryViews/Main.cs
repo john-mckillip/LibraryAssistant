@@ -52,5 +52,12 @@ namespace LibraryViews
             Main.ActiveForm.Hide();
             cds.Show();
         }
+
+        private void dvdButton_Click(object sender, EventArgs e)
+        {
+            DvdsView dvds = new DvdsView(media);
+            Main.ActiveForm.Hide();
+            dvds.Show();
+        }
     }
 }

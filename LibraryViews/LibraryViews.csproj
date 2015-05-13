@@ -207,11 +207,17 @@
     <EmbeddedResource Include="CheckInCdView.resx">
       <DependentUpon>CheckInCdView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckInDvdView.resx">
+      <DependentUpon>CheckInDvdView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CheckoutBookView.resx">
       <DependentUpon>CheckoutBookView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckoutCdView.resx">
       <DependentUpon>CheckoutCdView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckOutDvdView.resx">
+      <DependentUpon>CheckOutDvdView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomersView.resx">
       <DependentUpon>CustomersView.cs</DependentUpon>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditCustomerView.resx">
       <DependentUpon>EditCustomerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDvdView.resx">
+      <DependentUpon>EditDvdView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -246,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchCdView.resx">
       <DependentUpon>SearchCdView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchDvdView.resx">
+      <DependentUpon>SearchDvdView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

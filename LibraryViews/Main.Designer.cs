@@ -124,6 +124,7 @@
             this.dvdButton.TabIndex = 6;
             this.dvdButton.Text = "DVDS";
             this.dvdButton.UseVisualStyleBackColor = false;
+            this.dvdButton.Click += new System.EventHandler(this.dvdButton_Click);
             // 
             // button1
             // 

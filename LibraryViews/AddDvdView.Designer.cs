@@ -56,6 +56,7 @@
             this.backButton.TabIndex = 33;
             this.backButton.Text = "GO BACK";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // exitButton
             // 
@@ -71,6 +72,7 @@
             this.exitButton.TabIndex = 32;
             this.exitButton.Text = "EXIT";
             this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // addDvdButton
             // 
@@ -86,6 +88,7 @@
             this.addDvdButton.TabIndex = 31;
             this.addDvdButton.Text = "ADD";
             this.addDvdButton.UseVisualStyleBackColor = false;
+            this.addDvdButton.Click += new System.EventHandler(this.addDvdButton_Click);
             // 
             // starLabel
             // 

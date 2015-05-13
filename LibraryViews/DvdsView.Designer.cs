@@ -67,6 +67,7 @@
             this.checkInButton.TabIndex = 15;
             this.checkInButton.Text = "CHECK IN DVD";
             this.checkInButton.UseVisualStyleBackColor = false;
+            this.checkInButton.Click += new System.EventHandler(this.checkInButton_Click);
             // 
             // editButton
             // 
@@ -97,6 +98,7 @@
             this.checkoutButton.TabIndex = 13;
             this.checkoutButton.Text = "CHECK OUT DVD";
             this.checkoutButton.UseVisualStyleBackColor = false;
+            this.checkoutButton.Click += new System.EventHandler(this.checkoutButton_Click);
             // 
             // backButton
             // 
@@ -112,6 +114,7 @@
             this.backButton.TabIndex = 12;
             this.backButton.Text = "GO BACK";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // exitButton
             // 
@@ -127,6 +130,7 @@
             this.exitButton.TabIndex = 11;
             this.exitButton.Text = "EXIT";
             this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // mediaListView
             // 
@@ -154,6 +158,7 @@
             this.addDvdButton.TabIndex = 9;
             this.addDvdButton.Text = "ADD DVD";
             this.addDvdButton.UseVisualStyleBackColor = false;
+            this.addDvdButton.Click += new System.EventHandler(this.addDvdButton_Click);
             // 
             // DvdsView
             // 
