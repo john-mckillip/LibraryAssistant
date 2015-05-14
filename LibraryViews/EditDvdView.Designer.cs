@@ -34,9 +34,9 @@
             this.producerLabel = new System.Windows.Forms.Label();
             this.directorLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.publisherTextBox = new System.Windows.Forms.TextBox();
+            this.starTextBox = new System.Windows.Forms.TextBox();
             this.producerTextBox = new System.Windows.Forms.TextBox();
-            this.performerTextBox = new System.Windows.Forms.TextBox();
+            this.directorTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.getDvdButton = new System.Windows.Forms.Button();
             this.getIdLabel = new System.Windows.Forms.Label();
@@ -60,6 +60,7 @@
             this.deleteDvdButton.TabIndex = 49;
             this.deleteDvdButton.Text = "DELETE DVD";
             this.deleteDvdButton.UseVisualStyleBackColor = false;
+            this.deleteDvdButton.Click += new System.EventHandler(this.deleteDvdButton_Click);
             // 
             // updateDvdButton
             // 
@@ -75,6 +76,7 @@
             this.updateDvdButton.TabIndex = 48;
             this.updateDvdButton.Text = "UPDATE DVD";
             this.updateDvdButton.UseVisualStyleBackColor = false;
+            this.updateDvdButton.Click += new System.EventHandler(this.updateDvdButton_Click);
             // 
             // starLabel
             // 
@@ -117,13 +119,13 @@
             this.titleLabel.TabIndex = 44;
             this.titleLabel.Text = "Title";
             // 
-            // publisherTextBox
+            // starTextBox
             // 
-            this.publisherTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherTextBox.Location = new System.Drawing.Point(369, 621);
-            this.publisherTextBox.Name = "publisherTextBox";
-            this.publisherTextBox.Size = new System.Drawing.Size(290, 35);
-            this.publisherTextBox.TabIndex = 43;
+            this.starTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.starTextBox.Location = new System.Drawing.Point(369, 621);
+            this.starTextBox.Name = "starTextBox";
+            this.starTextBox.Size = new System.Drawing.Size(290, 35);
+            this.starTextBox.TabIndex = 43;
             // 
             // producerTextBox
             // 
@@ -133,13 +135,13 @@
             this.producerTextBox.Size = new System.Drawing.Size(290, 35);
             this.producerTextBox.TabIndex = 42;
             // 
-            // performerTextBox
+            // directorTextBox
             // 
-            this.performerTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.performerTextBox.Location = new System.Drawing.Point(369, 477);
-            this.performerTextBox.Name = "performerTextBox";
-            this.performerTextBox.Size = new System.Drawing.Size(290, 35);
-            this.performerTextBox.TabIndex = 41;
+            this.directorTextBox.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.directorTextBox.Location = new System.Drawing.Point(369, 477);
+            this.directorTextBox.Name = "directorTextBox";
+            this.directorTextBox.Size = new System.Drawing.Size(290, 35);
+            this.directorTextBox.TabIndex = 41;
             // 
             // titleTextBox
             // 
@@ -163,6 +165,7 @@
             this.getDvdButton.TabIndex = 39;
             this.getDvdButton.Text = "GET DVD";
             this.getDvdButton.UseVisualStyleBackColor = false;
+            this.getDvdButton.Click += new System.EventHandler(this.getDvdButton_Click);
             // 
             // getIdLabel
             // 
@@ -197,6 +200,7 @@
             this.backButton.TabIndex = 36;
             this.backButton.Text = "GO BACK";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // exitButton
             // 
@@ -212,6 +216,7 @@
             this.exitButton.TabIndex = 35;
             this.exitButton.Text = "EXIT";
             this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // mediaListView
             // 
@@ -236,9 +241,9 @@
             this.Controls.Add(this.producerLabel);
             this.Controls.Add(this.directorLabel);
             this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.publisherTextBox);
+            this.Controls.Add(this.starTextBox);
             this.Controls.Add(this.producerTextBox);
-            this.Controls.Add(this.performerTextBox);
+            this.Controls.Add(this.directorTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.getDvdButton);
             this.Controls.Add(this.getIdLabel);
@@ -261,9 +266,9 @@
         private System.Windows.Forms.Label producerLabel;
         private System.Windows.Forms.Label directorLabel;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.TextBox publisherTextBox;
+        private System.Windows.Forms.TextBox starTextBox;
         private System.Windows.Forms.TextBox producerTextBox;
-        private System.Windows.Forms.TextBox performerTextBox;
+        private System.Windows.Forms.TextBox directorTextBox;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.Button getDvdButton;
         private System.Windows.Forms.Label getIdLabel;

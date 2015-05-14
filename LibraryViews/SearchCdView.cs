@@ -18,7 +18,7 @@ namespace LibraryViews
         private string noSuccessString = "The cd was nowhere to be found.";
         public static List<Media> mediaItems;
 
-        // Private method that populates the columns of booksListView
+        // Private method that populates the columns of mediaListView
         private void populateListView()
         {
             mediaListView.View = View.Details;

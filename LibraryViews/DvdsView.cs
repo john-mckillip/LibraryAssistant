@@ -77,5 +77,19 @@ namespace LibraryViews
             DvdsView.ActiveForm.Hide();
             checkInDvd.Show();
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            EditDvdView editDvd = new EditDvdView(mediaItems);
+            DvdsView.ActiveForm.Hide();
+            editDvd.Show();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            SearchDvdView searchDvds = new SearchDvdView(mediaItems);
+            DvdsView.ActiveForm.Hide();
+            searchDvds.Show();
+        }
     }
 }

@@ -52,6 +52,7 @@
             this.searchButton.TabIndex = 16;
             this.searchButton.Text = "SEARCH";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // checkInButton
             // 
@@ -83,6 +84,7 @@
             this.editButton.TabIndex = 14;
             this.editButton.Text = "EDIT DVD";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // checkoutButton
             // 

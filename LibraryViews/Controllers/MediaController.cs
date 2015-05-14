@@ -171,6 +171,38 @@ namespace LibraryViews.Controllers
             }
         }
 
+        public static ListView PopulateDvdsSearchViewList(ListView l, Media m)
+        {
+            Media media = m;
+            if (media is Dvd)
+            {
+                Dvd itemAsDvd = (Dvd)m;
+                ListViewItem itm;
+                string[] bk = new String[4];
+
+                bk[0] = itemAsDvd.Id.ToString();
+                bk[1] = itemAsDvd.Title;
+                bk[2] = itemAsDvd.Director;
+                // Is it in stock?
+                if (itemAsDvd.IsCheckedOut())
+                {
+                    bk[3] = "Out of Stock";
+                }
+                else
+                {
+                    bk[3] = "In Stock";
+                }
+                itm = new ListViewItem(bk);
+                l.Items.Add(itm);
+
+                return l;
+            }
+            else
+            {
+                return l;
+            }
+        }
+
         public static List<Media> GetMediaList()
         {
             ObjectSerializer serializer = new ObjectSerializer();
@@ -299,16 +331,16 @@ namespace LibraryViews.Controllers
 
             try
             {
-                Cd updatedCd = new Cd(i, t, d, p, s);
+                Dvd updatedDvd = new Dvd(t, d, p, s);
                 List<Media> media = new List<Media>();
                 media = m;
 
-                foreach (Media c in media)
+                foreach (Media me in media)
                 {
-                    if (c.Id == i)
+                    if (me.Id == i)
                     {
                         media.RemoveAt(counter);
-                        media.Insert(counter, updatedCd);
+                        media.Insert(counter, updatedDvd);
                         break;
                     }
                     counter++;

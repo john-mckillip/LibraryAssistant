@@ -27,6 +27,17 @@ namespace LibraryModels
             this.isCheckedOut = false;
         }
 
+        public Dvd(int i, string t, string d, string p, string s)
+            : base(t)
+        {
+            this.Id = i;
+            this.Title = t;
+            this.director = d;
+            this.producer = p;
+            this.star = t;
+            this.isCheckedOut = false;
+        }
+
         public string Director
         {
             get { return director; }

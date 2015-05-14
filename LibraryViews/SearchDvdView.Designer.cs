@@ -50,6 +50,7 @@
             this.titleSearchButton.TabIndex = 50;
             this.titleSearchButton.Text = "SEARCH";
             this.titleSearchButton.UseVisualStyleBackColor = false;
+            this.titleSearchButton.Click += new System.EventHandler(this.titleSearchButton_Click);
             // 
             // titleLabel
             // 
@@ -84,6 +85,7 @@
             this.backButton.TabIndex = 47;
             this.backButton.Text = "GO BACK";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // exitButton
             // 
@@ -99,6 +101,7 @@
             this.exitButton.TabIndex = 46;
             this.exitButton.Text = "EXIT";
             this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // mediaListView
             // 
